@@ -42,6 +42,12 @@ public class BitprojectApplication {
 		return "<h1>Meow Meow</h1><img src='https://i.pinimg.com/originals/44/a2/43/44a243f8b38edd95a35f725f3b80219e.gif'>";
 	}
 
+	@RequestMapping(value = "/dog")
+	public ModelAndView dogView(){
+		ModelAndView dogView = new ModelAndView();
+		dogView.setViewName("dog.html");
+		return dogView;
+	}
 
 	//new mapping style
 		//@GetMapping(value = "/home")
