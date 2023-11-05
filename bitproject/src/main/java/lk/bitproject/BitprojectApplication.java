@@ -23,10 +23,10 @@ public class BitprojectApplication {
 		System.out.println("test");
 	}
 
-	@RequestMapping(value = "/")
+	@RequestMapping(value = {"/" , "/index"})
 	//return plain html
 	public String testData(){
-		return "<h1>Hello</h1>";
+		return "<h1>Spring</h1>";
 	}
 
 	@RequestMapping(value = "/admin")
