@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins',sans-serif;
+}
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    color: black;
+    font-size: 1.1rem;
+
+}
+
+.custom-table th {
+    background: mediumpurple;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+}
+.custom-table td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+}
+.custom-table tr {
+    border-bottom: 1px solid #f3f3f3;
+}
+.custom-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.custom-table tr:hover td{
+    background: rgba(111, 66, 193, 0.31);
+    color: white;
+}
+.custom-h1{
+    color: #6f42c1;
+}
+.custom-btn{
+    width: max-content;
+    border-radius: 10px;
+    color: white;
+    filter: grayscale(.2);
+    border: none;
+}
+.custom-btn:hover
+{
+    border: none;
+    filter: grayscale(0);
+}
+.no-flex{
+    display: block;
+}
+.custom-row{
+    margin: 0 auto;
+    width: 75%;
+    text-align: right;
+
+}
+.btn-purple{
+    background: #6f42c1;
+}
+.btn-purple:hover{
+    background: #6f42c1;
+
+}
+.btn-coll {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+   border-bottom: 0;
+}

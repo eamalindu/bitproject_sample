@@ -1,0 +1,11 @@
+.custom-collapse{
+    width: 100%;
+    height: auto;
+    background:#00AEC7 ;
+    border-radius: 10px;
+}
+
+.custom-collapse button:focus{
+    background-color: white;
+    color: black!important;
+}

@@ -1,0 +1,11 @@
+.btn-custom {
+    border-radius: 20px;
+    color: black;
+    width: 120px;
+}
+
+.btn-custom:hover {
+    color: white;
+}
+
+

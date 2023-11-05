@@ -1,0 +1,35 @@
+//Reusable Component
+//this external Common Function can be used for multiple instances
+//instead of writing multiple code segments we can minimize the codes by writing a common validator that can be used at any place
+
+
+//This function will fill the data into select (dropdowns)
+//This function has three arguments
+//1) elementID -> ID of the select (dropdown)
+//2) message -> default Selected Option text
+//3) dataList -> option values in an array
+//This function is called using window.load event handler
+//civilStatusDataList = [{id:1,name:'Single'},{id:2,name:'Married'},{id:3,name:'Divorced'}]
+//Example -> fillSelectOptions(civilStatus,'Please Select Your Civil Status',civilStatusDataList);
+const fillSelectOptions = (elementID, message, dataList) => {
+    const selectElement = elementID;
+    selectElement.innerHTML = '';
+    if (message !== '') {
+        const optionDefault = document.createElement('option');
+        optionDefault.innerText = message;
+        optionDefault.selected = true;
+        optionDefault.disabled = true;
+        selectElement.appendChild(optionDefault);
+    }
+
+    dataList.forEach(ob => {
+        const option = document.createElement('option');
+        option.innerText = ob.name;
+        //converting JavaScript values to JSON strings
+        option.value = JSON.stringify(ob);
+        selectElement.appendChild(option);
+    })
+
+
+}
+

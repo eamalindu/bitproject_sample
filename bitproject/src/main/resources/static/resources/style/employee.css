@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #00AEC7 url("../images/background.svg") no-repeat;
+    background-size: 25% 100%;
+
+}
+
+.form-select {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 0.75rem center !important;
+    background-size: 16px 12px !important;
+}
+
+.bg-custom {
+    background: rgba(0, 174, 199, 0.6);
+    color: white;
+}
+
+option {
+    color: white;
+    background: rgba(0, 174, 199);
+}
+
+.form-check-input {
+    border-color: black !important;;
+}
+
+.form-check-input:checked {
+    background-color: rgba(0, 174, 199) !important;
+    border-color: rgba(0, 174, 199, 0.6) !important;
+}
+.flex-custom{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
