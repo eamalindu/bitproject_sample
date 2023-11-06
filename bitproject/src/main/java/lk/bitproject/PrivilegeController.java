@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @RestController
 
 //class level mapping
@@ -20,5 +22,10 @@ public class PrivilegeController {
         ModelAndView privilegeView = new ModelAndView();
         privilegeView.setViewName("privilege.html");
         return privilegeView;
+    }
+
+    @GetMapping(value = "/findall",produces = "application/json")
+    public List<Privilege> findAll(){
+        return privilegeDAO.findAll();
     }
 }
