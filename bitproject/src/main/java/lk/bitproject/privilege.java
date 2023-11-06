@@ -32,4 +32,5 @@ public class privilege {
 
     //need to add foreign keys
 
+
 }
