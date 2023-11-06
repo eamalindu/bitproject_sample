@@ -35,6 +35,9 @@ public class Privilege {
     @JoinColumn(name = "role_id",referencedColumnName = "id")
     private Role role_id;
 
+    @ManyToOne
+    @JoinColumn(name = "module_id",referencedColumnName = "id")
+    private Module module_id;
 
 
 }
