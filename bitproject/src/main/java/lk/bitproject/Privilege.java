@@ -31,6 +31,9 @@ public class Privilege {
     private Boolean delete;
 
     //need to add foreign keys
+    @ManyToOne
+    @JoinColumn(name = "role_id",referencedColumnName = "id")
+    private Role role_id;
 
 
 }
