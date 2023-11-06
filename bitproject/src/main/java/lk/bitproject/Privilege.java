@@ -36,4 +36,5 @@ public class Privilege {
     private Role role_id;
 
 
+
 }
