@@ -14,6 +14,8 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto Increment
     private Integer id;
 
+    @Column(name = "name")
+    @NotNull
     private String Name;
 
 }
