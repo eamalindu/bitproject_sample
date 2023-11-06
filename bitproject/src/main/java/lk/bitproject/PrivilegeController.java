@@ -28,4 +28,5 @@ public class PrivilegeController {
     public List<Privilege> findAll(){
         return privilegeDAO.findAll();
     }
+    //done
 }
