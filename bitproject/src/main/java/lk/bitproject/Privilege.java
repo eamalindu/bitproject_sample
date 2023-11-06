@@ -7,7 +7,7 @@ import lombok.Data;
 @Entity
 @Table(name = "privilege")
 @Data
-public class privilege {
+public class Privilege {
 
     @Id
     @Column(name = "id",unique = true)
