@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "module")
 @Data
+
 @NoArgsConstructor() //default constructor
 @AllArgsConstructor() //all argument constructor
 public class Module {

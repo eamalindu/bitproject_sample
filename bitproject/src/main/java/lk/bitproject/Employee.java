@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 
 @Entity //make as a persistence entity
 @Table(name = "employee") //mapping table name with class name
-@Data //using lombok to auto generate setter,getters,toString
 
+@Data //using lombok to auto generate setter,getters,toString
 @NoArgsConstructor() //default constructor
 @AllArgsConstructor() //all argument constructor
 public class Employee {

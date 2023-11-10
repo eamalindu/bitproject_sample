@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "role")
+
 @Data
 @NoArgsConstructor() //default constructor
 @AllArgsConstructor() //all argument constructor

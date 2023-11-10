@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "designation")
+
 @Data
 @NoArgsConstructor() //default constructor
 @AllArgsConstructor() //all argument constructor

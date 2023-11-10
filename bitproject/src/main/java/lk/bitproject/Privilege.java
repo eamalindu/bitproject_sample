@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "privilege")
-@Data
 
+@Data
 @NoArgsConstructor() //default constructor
 @AllArgsConstructor() //all argument constructor
 public class Privilege {
