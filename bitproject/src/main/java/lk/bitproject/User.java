@@ -29,17 +29,22 @@ public class User {
     @NotNull
     private String password;
 
-    @Column(name = "email",length = 150)
+    @Column(name = "email",unique = true,length = 150)
     @NotNull
     private String email;
 
     @Column(name = "photopath",length = 150)
     private String photoPath;
 
+    @Column(name = "status")
+    @NotNull
     private Boolean status;
 
+    @Column(name = "added_datetime")
+    @NotNull
     private LocalDateTime addedDateTime;
 
+    @Column(name = "note")
     private String note;
 
 
