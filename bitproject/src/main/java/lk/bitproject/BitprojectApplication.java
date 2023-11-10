@@ -14,13 +14,13 @@ public class BitprojectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BitprojectApplication.class, args);
-		System.out.println("hello");
+		System.out.println("Initializing");
 
 		test();
 	}
 
 	public static void test(){
-		System.out.println("test");
+		System.out.println("Project Started!");
 	}
 
 	@RequestMapping(value = {"/" , "/index"})

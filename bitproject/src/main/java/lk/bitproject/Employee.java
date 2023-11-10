@@ -3,10 +3,13 @@ package lk.bitproject;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity //make as a persistence entity
 @Table(name = "employee") //mapping table name with class name
 @Data //using lombok to auto generate setter,getters,toString
+
+@NoArgsConstructor() //default constructor
 public class Employee {
 
     @Id //Primary Key
