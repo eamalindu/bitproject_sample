@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
+import java.time.LocalDateTime;
+
 @Entity //make as a persistence entity
 @Table(name = "employee") //mapping table name with class name
 
@@ -37,6 +39,21 @@ public class Employee {
     @Column(name = "callingname")
     @NotNull
     private String callingname;
+
+    private String email; //150 unique
+
+    private String mobileNumber; //10
+
+    private String landNumber; //10
+
+    private String address;
+
+    private String civilStatus; //10
+
+    private String note;
+
+    private LocalDateTime addedDateTime;
+
 
     @ManyToOne //Relationship
     @JoinColumn(name = "employeestatus_id",referencedColumnName = "id") //CoulmnName and Reference Table Column Name
