@@ -149,6 +149,7 @@ const refreshTable = () => {
 
     employees = [];
 
+    //using ajax getting the data from the database and assign the value to employee array
     $.ajax("/employee/findall",{
         type:"Get",
         contentType:"json",
