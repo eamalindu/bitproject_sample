@@ -233,12 +233,16 @@ const getUserAccstatus = (ob) => {
 }
 
 const rowEdit = (ob, rowIndex) => {
-    fullName.value = ob.fullName;
+    fullName.value = ob.fullname;
     nic.value = ob.nic;
     email.value = ob.email;
-    designation.value = ob.job.name;
-    mobileNumber.value = ob.mobile;
-
+    designation.value = ob.designationid.des;
+    mobileNumber.value = ob.mobileNumber;
+    address.value = ob.address;
+    civilStatus.value = ob.civilStatus;
+    callingName.value = ob.callingname;
+    note.value = ob.note;
+    landNumber.value = ob.landNumber;
 }
 
 const rowPrint = (ob, rowIndex) => {
