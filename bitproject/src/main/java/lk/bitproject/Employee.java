@@ -45,7 +45,7 @@ public class Employee {
     @NotNull
     private LocalDate dob;
 
-    @Column(name = "gender")
+    @Column(name = "gender",length = 10)
     @NotNull
     private String gender;
 
