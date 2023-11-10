@@ -40,20 +40,32 @@ public class Employee {
     @NotNull
     private String callingname;
 
+    @Column(name = "email",unique = true,length = 150)
+    @NotNull
     private String email; //150 unique
 
+    @Column(name = "mobilenumber",length = 10)
+    @NotNull
     private String mobileNumber; //10
 
+    @Column(name = "landnumber",length = 10)
     private String landNumber; //10
 
+    @Column(name = "address")
+    @NotNull
     private String address;
 
+    @Column(name = "civilstatus",length = 10)
+    @NotNull
     private String civilStatus; //10
 
+    @Column(name = "note")
+    @NotNull
     private String note;
 
+    @Column(name = "added_datetime")
+    @NotNull
     private LocalDateTime addedDateTime;
-
 
     @ManyToOne //Relationship
     @JoinColumn(name = "employeestatus_id",referencedColumnName = "id") //CoulmnName and Reference Table Column Name
