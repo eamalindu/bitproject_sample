@@ -45,6 +45,10 @@ public class Employee {
     @NotNull
     private LocalDate dob;
 
+    @Column(name = "gender")
+    @NotNull
+    private String gender;
+
     @Column(name = "email",unique = true,length = 150)
     @NotNull
     private String email; //150 unique
