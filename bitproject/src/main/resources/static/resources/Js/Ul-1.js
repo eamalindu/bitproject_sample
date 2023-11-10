@@ -156,6 +156,7 @@ const refreshTable = () => {
         success: function (data){
             console.log(data);
             employees = data;
+            showCustomModal('Data Imported!','success');
         },
         error:function (resOb){
             alert("error"+resOb);
@@ -168,8 +169,7 @@ const refreshTable = () => {
     //dataType -> text = string, number, date
     //dataType -> function = object, array, boolean
     displayPropertyList = [{property: 'fullName', dataType: 'text'}, {property: 'nic', dataType: 'text'}, {property: 'email', dataType: 'text'}, {
-        property: getJobName, dataType: 'function'
-    }, {property: getUserAccstatus, dataType: 'function'}, {property: 'mobile', dataType: 'text'}, {property: getEmployeeStatus, dataType: 'function'}];
+        property: getJobName, dataType: 'function'}, {property: getUserAccstatus, dataType: 'function'}, {property: 'mobile', dataType: 'text'}, {property: getEmployeeStatus, dataType: 'function'}];
 
 //calling external JS
 //1 parameter -> table id
