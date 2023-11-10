@@ -1,11 +1,15 @@
 package lk.bitproject;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "designation")
 @Data
+@NoArgsConstructor() //default constructor
+@AllArgsConstructor() //all argument constructor
 public class Designation {
 
     @Id
