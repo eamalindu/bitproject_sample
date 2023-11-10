@@ -220,7 +220,7 @@ const getJobName = (ob) => {
         return '<p class="bg-dark text-white rounded-2">' + ob.designationid.des + '</p>';
     }
     if (ob.designationid.des === 'Store Manager') {
-        return '<p class="bg-dark text-white rounded-2">' + ob.designationid.des + '</p>';
+        return '<p class="bg-warning text-white rounded-2">' + ob.designationid.des + '</p>';
     }
 }
 
