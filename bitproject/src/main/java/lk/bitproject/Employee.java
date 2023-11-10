@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 @Entity //make as a persistence entity
 @Table(name = "employee") //mapping table name with class name
@@ -29,6 +30,7 @@ public class Employee {
 
     @Column(name = "nic",unique = true,length = 12)
     @NotNull
+    @Length(min = 10,max = 12)
     private String nic;
 
     @Column(name = "callingname")
