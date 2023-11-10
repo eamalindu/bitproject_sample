@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
     refreshTable();
 
 
-    employee = new Object();
+    employee = {};
 
 
 //full name validation -> template 'FirstName LastName'
@@ -55,7 +55,7 @@ window.addEventListener('load', () => {
             fullName.classList.remove('is-invalid');
             employee.fullName = fullName.value;
 
-           nameParts = fullName.value.split(" ");
+            nameParts = fullName.value.split(" ");
             document.querySelector('#autoNames').innerHTML = '';
             nameParts.forEach(item => {
 
@@ -150,29 +150,39 @@ const refreshTable = () => {
     employees = [];
 
     //using ajax getting the data from the database and assign the value to employee array
-    $.ajax("/employee/findall",{
-        type:"Get",
-        contentType:"json",
-        success: function (data){
+    $.ajax("/employee/findall", {
+        async: false,
+        type: "Get",
+        contentType: "json",
+        success: function (data) {
             console.log(data);
             employees = data;
-            showCustomModal('Data Imported!','success');
+            showCustomModal('Data Imported!', 'success');
         },
-        error:function (resOb){
-            alert("error"+resOb);
+        error: function (resOb) {
+            alert("error" + resOb);
         }
-    })
+
+    });
 
     //create an array for storing column names and data types
     //Property -> column name
     //datatype -> specific data type for mentioned column (can be string, int, object, boolean, array, date)
     //dataType -> text = string, number, date
     //dataType -> function = object, array, boolean
-    displayPropertyList = [{property: 'fullName', dataType: 'text'}, {property: 'nic', dataType: 'text'}, {property: 'email', dataType: 'text'}, {
-        property: getJobName, dataType: 'function'}, {property: getUserAccstatus, dataType: 'function'}, {property: 'mobile', dataType: 'text'}, {property: getEmployeeStatus, dataType: 'function'}];
+    displayPropertyList = [{property: 'fullname', dataType: 'text'}, {
+        property: 'nic',
+        dataType: 'text'
+    }, {property: 'email', dataType: 'text'}, {
+        property: getJobName, dataType: 'function'
+    }, {property: getUserAccstatus, dataType: 'function'}, {
+        property: 'mobileNumber',
+        dataType: 'text'
+    }, {property: getEmployeeStatus, dataType: 'function'}];
 
 //calling external JS
 //1 parameter -> table id
+
 //2 parameter -> data array list
 //3 parameter -> display Property List (Column headers)
     fillDataIntoTable(tblEmp, employees, displayPropertyList, rowEdit, rowPrint, rowDelete);
@@ -188,31 +198,34 @@ const getEmployeeStatus = (ob) => {
     //if the array has a boolean value, we can use this method
     //example -> if(ob.ins == true){return 'Granted'}
 
-    if (ob.employeeStatus.name === 'Working') {
+    if (ob.employeestatusid.status === 'Working') {
         //return '<p class="text-white bg-success rounded-2 p-1">'+ob.employeeStatus.name+'</p>'
         return '🟢';
     }
-    if (ob.employeeStatus.name === 'Resign') {
+    if (ob.employeestatusid.status === 'Resign') {
         // return '<p class="text-white bg-warning rounded-2 p-1">'+ob.employeeStatus.name+'</p>'
         return '🟡';
     }
-    if (ob.employeeStatus.name === 'Delete') {
+    if (ob.employeestatusid.status === 'Delete') {
         //   return '<p class="text-white bg-danger rounded-2 p-1">'+ob.employeeStatus.name+'</p>'
         return '🔴';
     }
 }
 
 const getJobName = (ob) => {
-    if (ob.job.name === 'Manager') {
-        return '<p class="bg-info text-white rounded-2">' + ob.job.name + '</p>';
+    if (ob.designationid.des === 'Manager') {
+        return '<p class="bg-info text-white rounded-2">' + ob.designationid.des + '</p>';
     }
-    if (ob.job.name === 'Cashier') {
-        return '<p class="bg-dark text-white rounded-2">' + ob.job.name + '</p>';
+    if (ob.designationid.des === 'Cashier') {
+        return '<p class="bg-dark text-white rounded-2">' + ob.designationid.des + '</p>';
+    }
+    if (ob.designationid.des === 'Store Manager') {
+        return '<p class="bg-dark text-white rounded-2">' + ob.designationid.des + '</p>';
     }
 }
 
 const getUserAccstatus = (ob) => {
-    if (ob.hasUserAccount) {
+    if (ob.gender) {
         return '<i class="fa fa-check-circle text-success fs-3"></i>';
     } else {
         return '<i class="fa fa-xmark-circle text-danger fa-shake fs-3"></i>'
