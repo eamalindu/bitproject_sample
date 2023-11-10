@@ -19,22 +19,6 @@ window.addEventListener('load', () => {
 //dynamic select hard code
     employeeStatus = [{id: 1, name: 'Working'}, {id: 2, name: 'Resign'}, {id: 3, name: 'Delete'}];
 
-    /*const selectEmpStatus = document.querySelector('#empStatus');
-    selectEmpStatus.innerHTML = '';
-    const optionDefault = document.createElement('option');
-    optionDefault.innerText = "Select Employee Status";
-    optionDefault.selected = true;
-    optionDefault.disabled = true;
-    selectEmpStatus.appendChild(optionDefault);
-
-    employeeStatus.forEach((element, item) => {
-        const option = document.createElement('option');
-        option.innerText = element.name;
-        //converting JavaScript values to JSON strings
-        option.value = JSON.stringify(element);
-        selectEmpStatus.appendChild(option);
-    });
-     */
 
 //Dynamic select external method
     designationStatus = [{id: 1, name: 'Manger'}, {id: 2, name: 'Cashier'}, {id: 3, name: 'Clerk'}];
@@ -110,123 +94,6 @@ window.addEventListener('load', () => {
         }
     })
 
-    /*
-//nic validation -> template 1) Old NIC '981251108V' 2) New NIC '19981251108'
-//old nic consist of 9 numbers and should end with either 'v', 'V', 'x', or 'X'
-//new nic consist of 12 numbers
-nic.addEventListener('keyup', () => {
-
-        //pattern -> oldNIC | newNIC
-        //in regex '|' is for OR gate
-        const pattern = '^[6-9][0-9]{8}[x|X|v|V]|([1][9]|[2][0])[0-9]{10}$';
-        const regexPattern = new RegExp(pattern);
-
-        if (regexPattern.test(nic.value)) {
-            nic.classList.add('is-valid');
-            nic.classList.remove('is-invalid');
-
-        } else {
-            nic.classList.remove('is-valid');
-            nic.classList.add('is-invalid');
-        }
-    });
-
-
-  */
-
-
-    /*
-//mobile number validation -> template '0768008003'
-//Only ten characters are allowed, First Character should be a 0, Second Character should be a 7, Third character should be any of 0,1,2,5,6,7,8
-    mobileNumber.addEventListener('keyup', () => {
-        const pattern = '^[0][7][01245678][0-9]{7}$';
-        const regexPattern = new RegExp(pattern);
-
-        if (regexPattern.test(mobileNumber.value)) {
-            mobileNumber.classList.add('is-valid');
-            mobileNumber.classList.remove('is-invalid');
-
-        } else {
-            mobileNumber.classList.remove('is-valid');
-            mobileNumber.classList.add('is-invalid');
-        }
-    });
-
-     */
-
-
-    /*
-//land number validation -> template '0337572574'
-//Only ten characters are allowed, the First Character should be a 0, the Remaining characters should be any of 0,1,2,3,4,5,6,7,8,9
-    landNumber.addEventListener('keyup', () => {
-        const pattern = '^[0][0123456789][0-9]{8}$';
-        const regexPattern = new RegExp(pattern);
-        if (regexPattern.test(landNumber.value)) {
-            landNumber.classList.add('is-valid');
-            landNumber.classList.remove('is-invalid');
-
-        } else {
-            landNumber.classList.remove('is-valid');
-            landNumber.classList.add('is-invalid');
-        }
-
-    })
- */
-
-    /*
-//email address validation -> template 'name@domain.domain'
-    email.addEventListener('keyup', () => {
-        const pattern = '^[a-z|A-Z]{2,19}[@][a-z|A-Z]{2,8}[.][a-z|A-Z]{2,3}$';
-        const regexPattern = new RegExp(pattern);
-
-        if (regexPattern.test(email.value)) {
-            email.classList.add('is-valid');
-            email.classList.remove('is-invalid');
-
-        } else {
-            email.classList.remove('is-valid');
-            email.classList.add('is-invalid');
-        }
-
-    });
-
-     */
-
-    /*
-//address validation -> template 'gampaha'
-    address.addEventListener('keyup', () => {
-        //accept all input characters
-        const pattern = '^.*$';
-        const regexPattern = new RegExp(pattern);
-        if (regexPattern.test(address.value)) {
-            address.classList.add('is-valid');
-            address.classList.remove('is-invalid');
-
-        } else {
-            address.classList.remove('is-valid');
-            address.classList.add('is-invalid');
-        }
-    });
-     */
-
-    /*
-//notes validation -> no template
-    note.addEventListener('keyup', () => {
-        const pattern = '^[A-Z][a-z]{5,29}$';
-        const regexPattern = new RegExp(pattern);
-
-        if (regexPattern.test(note.value)) {
-            note.classList.add('is-valid');
-            note.classList.remove('is-invalid');
-
-        } else {
-            note.classList.remove('is-valid');
-            note.classList.add('is-invalid');
-        }
-    });
-
-     */
-
 
 });
 
@@ -240,6 +107,7 @@ const refreshTable = () => {
     //fullName, nic, email, mobile -> string => ''
     //employeeStatus -> object =>{}
 
+    /*
     employees = [{
         id: 1,
         fullName: 'Malindu Prabodhitha',
@@ -277,6 +145,21 @@ const refreshTable = () => {
         job: {id: 2, name: 'Cashier'},
         hasUserAccount: true
     }];
+     */
+
+    employees = [];
+
+    $.ajax("/employee/findall",{
+        type:"Get",
+        contentType:"json",
+        success: function (data){
+            console.log(data);
+            employees = data;
+        },
+        error:function (resOb){
+            alert("error"+resOb);
+        }
+    })
 
     //create an array for storing column names and data types
     //Property -> column name
