@@ -31,7 +31,7 @@ public class Employee {
     @Column(name = "nic",unique = true,length = 12)
     @NotNull
     //backend validation (before sending data to DB)
-    @Length(min = 10,max = 12,message = "Length Failed")
+    @Length(min = 10,max = 12,message = "NIC value must have either 10 or 12 Characters!")
     private String nic;
 
     @Column(name = "callingname")
