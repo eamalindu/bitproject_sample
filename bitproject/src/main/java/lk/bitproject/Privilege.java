@@ -35,7 +35,7 @@ public class Privilege {
     @NotNull
     private Boolean delete;
 
-    //oreign keys
+    //foreign keys
     @ManyToOne
     @JoinColumn(name = "role_id",referencedColumnName = "id")
     private Role role_id;
