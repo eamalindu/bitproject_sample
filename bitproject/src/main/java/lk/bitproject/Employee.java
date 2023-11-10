@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity //make as a persistence entity
@@ -39,6 +40,10 @@ public class Employee {
     @Column(name = "callingname")
     @NotNull
     private String callingname;
+
+    @Column(name = "dob")
+    @NotNull
+    private LocalDate dob;
 
     @Column(name = "email",unique = true,length = 150)
     @NotNull
