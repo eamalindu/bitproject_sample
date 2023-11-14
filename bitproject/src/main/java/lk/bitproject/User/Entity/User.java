@@ -1,4 +1,4 @@
-package lk.bitproject.User;
+package lk.bitproject.User.Entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
