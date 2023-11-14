@@ -69,7 +69,6 @@ public class Employee {
     private String civilStatus; //10
 
     @Column(name = "note")
-    @NotNull
     private String note;
 
     @Column(name = "added_datetime")

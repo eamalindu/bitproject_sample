@@ -243,12 +243,103 @@ const rowDelete = (ob, rowIndex) => {
     }
 }
 
+const errorCheck = () => {
+    let errors = '';
+
+    if (employee.fullname == null) {
+        errors = errors + "Full Name is required\n";
+        fullName.style.border = '1px solid red';
+    }
+
+    if (employee.callingname == null) {
+        errors = errors + "Calling Name is required\n";
+    }
+
+    if (employee.nic == null) {
+        errors = errors + "NIC is required\n";
+    }
+
+    if (employee.mobileNumber == null) {
+        errors = errors + "Mobile is required\n";
+    }
+
+    if (employee.email == null) {
+        errors = errors + "E-Mail is required\n";
+
+    }
+
+    if (employee.employeestatusid == null) {
+        errors = errors + "Employee Status is required\n";
+    }
+    return errors;
+
+
+}
+
 const formDataSubmit = () => {
 
-    //need to for errors
-    //user conformation
-    //pass data to backend
-    //check server response
-
     console.log('Add EMP', employee)
+
+    //calling errorCheck() function to get and display errors of the form
+    const errors = errorCheck();
+
+    //continue, if there are no any errors
+    if(errors===''){
+
+        //user confirmation
+        const confrimMessage = "Are You Sure to add the following record?\n" +
+            "\n Full Name is : "+employee.fullname;
+
+        const userConfirm = confirm(confrimMessage);
+
+        //if user confirm is true, pass the data to backend
+        if(userConfirm) {
+
+            //passing data to backend
+            let postServerResponse;
+
+            $.ajax("/employee", {
+                type: "POST",
+                async: false,
+                contentType: "application/json",
+                data: JSON.stringify(employee),
+                success: function (data) {
+                    console.log("success " + data);
+                    postServerResponse = data;
+                },
+                errors: function (resOb) {
+                    console.log("Error " + resOb);
+                    postServerResponse = resOb;
+                }
+            });
+
+            //if data passed successfully
+            //show a success alert
+            if(postServerResponse === "OK"){
+
+                showCustomModal("Employee Successfully Added!","success")
+
+                //refresh table after inserting a new data
+                refreshTable();
+                //refresh form
+                $('#frmEmployee').trigger("reset");
+            }
+
+            //if data passed unsuccessfully
+            //show an error alert
+            else
+            {
+                showCustomModal("Operation Failed! <br> Employee Record Not Saved! ","error")
+            }
+        }
+
+
+    }
+    //if there are any errors show error alerts
+    else{
+
+        showCustomModal(errors,'warning');
+    }
+
+
 }

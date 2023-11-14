@@ -79,8 +79,8 @@ function showCustomModal(msg,type) {
 
     //add secondary text to modalBody
     const modalBodySecondaryText = document.createElement('h5');
-    modalBodySecondaryText.classList.add('text-center','fs-4','text-capitalize','mb-4','mt-3');
-    modalBodySecondaryText.innerText = msg;
+    modalBodySecondaryText.classList.add('text-center','fs-5','text-capitalize','mb-4','mt-3');
+    modalBodySecondaryText.innerHTML = msg;
 
     modalBody.appendChild(modalBodySecondaryText);
 

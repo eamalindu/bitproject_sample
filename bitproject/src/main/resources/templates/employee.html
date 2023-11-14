@@ -34,7 +34,7 @@
     <div class="row mb-2">
         <div class="col-12 text-end fw-bold"><span class="text-danger">* </span>Required</div>
     </div>
-    <form onsubmit="return false">
+    <form onsubmit="return false" id="frmEmployee">
         <!-- Full Name -->
         <div class="row mb-2">
             <div class="col-4">
@@ -60,9 +60,9 @@
             <div class="col-3">
                 <label class="form-label fw-bold">Gender |<span class="text-danger">*</span></label>
                 <br/>
-                <input class="form-check-input" id="inlineRadio1" name="gender" onchange="inputRadioValidator(inlineRadio1,'',lblMale,lblFemale)" type="radio" value="Male">
+                <input class="form-check-input" id="inlineRadio1" name="gender" onchange="employee.gender=this.value" type="radio" value="Male">
                 <label class="form-check-label me-1" for="inlineRadio1" id="lblMale">Male</label>
-                <input class="form-check-input" id="inlineRadio2" name="gender" onchange="inputRadioValidator(this,'',lblFemale,lblMale)"
+                <input class="form-check-input" id="inlineRadio2" name="gender" onchange="employee.gender=this.value"
                        type="radio" value="Female">
                 <label class="form-check-label" for="inlineRadio2" id="lblFemale">Female</label>
             </div>
