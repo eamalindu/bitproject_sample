@@ -17,12 +17,25 @@ window.addEventListener('load', () => {
     const empStatus = document.querySelector('#empStatus');
 
 //dynamic select hard code
-    employeeStatus = [{id: 1, name: 'Working'}, {id: 2, name: 'Resign'}, {id: 3, name: 'Delete'}];
+    employeeStatus = [];
 
 
 //Dynamic select external method
-    designationStatus = [{id: 1, name: 'Manger'}, {id: 2, name: 'Cashier'}, {id: 3, name: 'Clerk'}];
+    designationStatus = [];
 
+    $.ajax("/employeeStatus/findall", {
+        async: false,
+        type: "Get",
+        contentType: "json",
+        success: function (data) {
+            console.log(data);
+            employeeStatus = data;
+        },
+        error: function (resOb) {
+            alert("error" + resOb);
+        }
+
+    });
     //calling external function fillSelectOptions()
     //Three parameters
     //1) Element ID
@@ -198,15 +211,15 @@ const getEmployeeStatus = (ob) => {
     //if the array has a boolean value, we can use this method
     //example -> if(ob.ins == true){return 'Granted'}
 
-    if (ob.employeestatusid.status === 'Working') {
+    if (ob.employeestatusid.name === 'Working') {
         //return '<p class="text-white bg-success rounded-2 p-1">'+ob.employeeStatus.name+'</p>'
         return '🟢';
     }
-    if (ob.employeestatusid.status === 'Resign') {
+    if (ob.employeestatusid.name === 'Resign') {
         // return '<p class="text-white bg-warning rounded-2 p-1">'+ob.employeeStatus.name+'</p>'
         return '🟡';
     }
-    if (ob.employeestatusid.status === 'Delete') {
+    if (ob.employeestatusid.name === 'Delete') {
         //   return '<p class="text-white bg-danger rounded-2 p-1">'+ob.employeeStatus.name+'</p>'
         return '🔴';
     }

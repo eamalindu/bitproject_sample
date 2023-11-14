@@ -14,5 +14,5 @@ public class EmployeeStatus {
     private Integer id;
 
     @Column(name = "status")
-    private String status;
+    private String name;
 }
