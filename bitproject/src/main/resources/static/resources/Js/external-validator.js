@@ -91,6 +91,7 @@ const inputRadioValidator = (elementID,pattern,labelOne,labelTwo)=>{
     if(elementID.checked){
         labelOne.style.color = 'green';
         labelTwo.style.color = 'black';
+        
 
     }
     else{
