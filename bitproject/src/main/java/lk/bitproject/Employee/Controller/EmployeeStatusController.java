@@ -1,5 +1,4 @@
 package lk.bitproject.Employee.Controller;
-
 import lk.bitproject.Employee.Dao.EmployeeStatusDAO;
 import lk.bitproject.Employee.Entity.EmployeeStatus;
 import org.springframework.beans.factory.annotation.Autowired;
