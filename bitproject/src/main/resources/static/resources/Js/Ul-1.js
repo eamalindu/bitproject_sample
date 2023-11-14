@@ -37,19 +37,8 @@ window.addEventListener('load', () => {
 
     });
 
-    $.ajax("/designation/findall", {
-        async: false,
-        type: "Get",
-        contentType: "json",
-        success: function (data) {
-            console.log(data);
-            designationStatus = data;
-        },
-        error: function (resOb) {
-            alert("error" + resOb);
-        }
+    designationStatus = ajaxGetRequest("/designation/findall",)
 
-    });
     //calling external function fillSelectOptions()
     //Three parameters
     //1) Element ID
