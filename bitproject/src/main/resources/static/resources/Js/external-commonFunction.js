@@ -38,11 +38,10 @@ const fillSelectOptions = (elementID, message, dataList) => {
 //This function will return the data as an array
 
 //Example -> ajaxGetRequest("/employee/findall")
-
 const ajaxGetRequest = (url) =>{
 
     let Response;
-    $.ajax("/employee/findall", {
+    $.ajax(url, {
         async: false,
         type: "Get",
         contentType: "json",
