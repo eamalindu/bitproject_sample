@@ -1,4 +1,4 @@
-package lk.bitproject.Privilege;
+package lk.bitproject.Privilege.Entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

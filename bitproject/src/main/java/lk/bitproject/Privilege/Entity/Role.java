@@ -1,4 +1,4 @@
-package lk.bitproject.Privilege;
+package lk.bitproject.Privilege.Entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -7,12 +7,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "module")
-@Data
+@Table(name = "role")
 
+@Data
 @NoArgsConstructor() //default constructor
 @AllArgsConstructor() //all argument constructor
-public class Module {
+public class Role {
 
     @Id
     @Column(name = "id",unique = true)
@@ -21,5 +21,6 @@ public class Module {
 
     @Column(name = "name")
     @NotNull
-    private String name;
+    private String Name;
+
 }

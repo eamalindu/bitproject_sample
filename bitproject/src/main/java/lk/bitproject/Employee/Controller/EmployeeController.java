@@ -1,5 +1,7 @@
-package lk.bitproject.Employee;
+package lk.bitproject.Employee.Controller;
 
+import lk.bitproject.Employee.Entity.Employee;
+import lk.bitproject.Employee.Dao.EmployeeDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

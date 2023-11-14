@@ -1,4 +1,4 @@
-package lk.bitproject.Employee;
+package lk.bitproject.Employee.Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

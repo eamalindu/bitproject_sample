@@ -1,5 +1,7 @@
-package lk.bitproject.Privilege;
+package lk.bitproject.Privilege.Controller;
 
+import lk.bitproject.Privilege.Entity.Privilege;
+import lk.bitproject.Privilege.Dao.PrivilegeDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
