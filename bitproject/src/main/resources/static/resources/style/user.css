@@ -1,0 +1,37 @@
+#formTable tr{
+    height: 50px;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    color: black;
+    font-size: 1.1rem;
+
+}
+
+.custom-table th {
+    background: mediumpurple;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+}
+.custom-table td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+}
+.custom-table tr {
+    border-bottom: 1px solid #f3f3f3;
+}
+.custom-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.custom-table tr:hover td{
+    background: rgba(111, 66, 193, 0.31);
+    color: white;
+}
+*{
+    box-shadow: none!important;
+}
