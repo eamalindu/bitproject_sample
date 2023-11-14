@@ -1,4 +1,4 @@
-package lk.bitproject;
+package lk.bitproject.User;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

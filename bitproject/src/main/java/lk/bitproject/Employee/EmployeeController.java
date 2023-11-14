@@ -1,4 +1,4 @@
-package lk.bitproject;
+package lk.bitproject.Employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,23 +1,26 @@
-package lk.bitproject;
+package lk.bitproject.Privilege;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "designation")
+@Table(name = "role")
 
 @Data
 @NoArgsConstructor() //default constructor
 @AllArgsConstructor() //all argument constructor
-public class Designation {
+public class Role {
 
     @Id
     @Column(name = "id",unique = true)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto Increment
     private Integer id;
 
-    @Column(name = "des")
-    private String des;
+    @Column(name = "name")
+    @NotNull
+    private String Name;
+
 }
