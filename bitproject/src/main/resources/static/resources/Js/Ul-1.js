@@ -39,6 +39,7 @@ window.addEventListener('load', () => {
 
     designationStatus = ajaxGetRequest("/designation/findall",)
 
+
     //calling external function fillSelectOptions()
     //Three parameters
     //1) Element ID
@@ -69,7 +70,7 @@ window.addEventListener('load', () => {
             //boostrap validation
             fullName.classList.add('is-valid');
             fullName.classList.remove('is-invalid');
-            employee.fullName = fullName.value;
+            employee.fullname = fullName.value;
 
             nameParts = fullName.value.split(" ");
             document.querySelector('#autoNames').innerHTML = '';
@@ -85,7 +86,7 @@ window.addEventListener('load', () => {
         } else {
             fullName.classList.remove('is-valid');
             fullName.classList.add('is-invalid');
-            employee.fullName = null;
+            employee.fullname = null;
         }
 
     });
@@ -100,11 +101,11 @@ window.addEventListener('load', () => {
             }
         }
         if (same) {
-            employee.callingName = callingName.value;
+            employee.callingname = callingName.value;
             callingName.classList.add('is-valid');
             callingName.classList.remove('is-invalid');
         } else {
-            employee.callingName = null;
+            employee.callingname = null;
             callingName.classList.remove('is-valid');
             callingName.classList.add('is-invalid');
         }
@@ -123,46 +124,6 @@ const refreshTable = () => {
     //fullName, nic, email, mobile -> string => ''
     //employeeStatus -> object =>{}
 
-    /*
-    employees = [{
-        id: 1,
-        fullName: 'Malindu Prabodhitha',
-        nic: '983151108V',
-        email: 'eamalindu@gmail.com',
-        mobile: '0781011144',
-        employeeStatus: {id: 1, name: 'Working'},
-        job: {id: 1, name: 'Manager'},
-        hasUserAccount: true
-    }, {
-        id: 2,
-        fullName: 'Sanithu Malhiru',
-        nic: '20051457412',
-        email: 'easanithu@gmail.com',
-        mobile: '0705368016',
-        employeeStatus: {id: 2, name: 'Resign'},
-        job: {id: 2, name: 'Cashier'},
-        hasUserAccount: false
-    }, {
-        id: 3,
-        fullName: 'Nihal Eduppili',
-        nic: '683281301V',
-        email: 'eanihal@gmail.com',
-        mobile: '0714856279',
-        employeeStatus: {id: 1, name: 'Working'},
-        job: {id: 1, name: 'Manager'},
-        hasUserAccount: false
-    }, {
-        id: 4,
-        fullName: 'Thathsara Viduara',
-        nic: '992544584V',
-        email: 'thathsara@gmail.com',
-        mobile: '0782349273',
-        employeeStatus: {id: 3, name: 'Delete'},
-        job: {id: 2, name: 'Cashier'},
-        hasUserAccount: true
-    }];
-     */
-
     employees = [];
 
     //using ajax getting the data from the database and assign the value to employee array
@@ -173,7 +134,6 @@ const refreshTable = () => {
         success: function (data) {
             console.log(data);
             employees = data;
-            showCustomModal('Data Imported!', 'success');
         },
         error: function (resOb) {
             alert("error" + resOb);
@@ -269,7 +229,7 @@ const rowDelete = (ob, rowIndex) => {
     //Highlight the selected row
     //tblEmp.children[1].children[rowIndex].style.backgroundColor = 'red';
 
-    const userResponse = confirm('You are about to delete the record of : ' + ob.fullName + '\nAre You Sure?');
+    const userResponse = confirm('You are about to delete the record of : ' + ob.fullname + '\nAre You Sure?');
     if (userResponse) {
         //server response
         const serverResponse = 'OK';

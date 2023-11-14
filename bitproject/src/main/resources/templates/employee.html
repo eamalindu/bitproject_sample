@@ -80,7 +80,7 @@
                         class="fa fa-solid fa-mobile-retro"></i></span>
                     <input aria-describedby="mobile-icon" aria-label="mobile Number" class="form-control"
                            id="mobileNumber" name="mobileNumber"
-                           placeholder="Enter Mobile No" required type="text" onkeyup="inputTextValidator(this,'^[0][7][01245678][0-9]{7}$','employee','mobile')">
+                           placeholder="Enter Mobile No" required type="text" onkeyup="inputTextValidator(this,'^[0][7][01245678][0-9]{7}$','employee','mobileNumber')">
                 </div>
             </div>
             <!-- Land Number -->
@@ -90,7 +90,7 @@
                     <span class="input-group-text bg-custom" id="land-icon"><i
                             class="fa-solid fa-phone-volume"></i></span>
                     <input aria-describedby="land-icon" aria-label="land Number" class="form-control"
-                           id="landNumber" name="landNumber" placeholder="Enter Land No" type="text" onkeyup="inputTextValidator(this,'^[0][12345689][0-9]{8}$','employee','land')">
+                           id="landNumber" name="landNumber" placeholder="Enter Land No" type="text" onkeyup="inputTextValidator(this,'^[0][12345689][0-9]{8}$','employee','landNumber')">
                 </div>
             </div>
             <!-- Email Address -->
@@ -124,7 +124,7 @@
         <div class="row mb-2">
             <div class="col-4">
                 <label class="form-label fw-bold">Designation |<span class="text-danger">*</span></label>
-                <select aria-label="Default select example" class="form-select" id="designation" name="designation" onchange="selectDynamicValueValidator(designation,'','employee','designation')" required>
+                <select aria-label="Default select example" class="form-select" id="designation" name="designation" onchange="selectDynamicValueValidator(designation,'','employee','designationid')" required>
                     <option disabled selected>Select Designation</option>
                     <option></option>
                     <option value="Manager">Manager</option>
@@ -142,7 +142,7 @@
             </div>
             <div class="col-4">
                 <label class="form-label fw-bold">Employee Status |<span class="text-danger">*</span></label>
-                <select aria-label="Default select example" class="form-select" id="empStatus" name="empStatus" onchange="selectStaticValueValidator(empStatus,'','employee','empStatus')" required>
+                <select aria-label="Default select example" class="form-select" id="empStatus" name="empStatus" onchange="selectDynamicValueValidator(empStatus,'','employee','employeestatusid')" required>
                     <option selected>Working</option>
                     <option value="Unemployed">Unemployed</option>
                     <option value="Self-Employed">Self-Employed</option>
