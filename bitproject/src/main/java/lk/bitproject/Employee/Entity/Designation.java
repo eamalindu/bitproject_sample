@@ -19,5 +19,5 @@ public class Designation {
     private Integer id;
 
     @Column(name = "des")
-    private String des;
+    private String name;
 }

@@ -36,6 +36,20 @@ window.addEventListener('load', () => {
         }
 
     });
+
+    $.ajax("/designation/findall", {
+        async: false,
+        type: "Get",
+        contentType: "json",
+        success: function (data) {
+            console.log(data);
+            designationStatus = data;
+        },
+        error: function (resOb) {
+            alert("error" + resOb);
+        }
+
+    });
     //calling external function fillSelectOptions()
     //Three parameters
     //1) Element ID
@@ -226,14 +240,14 @@ const getEmployeeStatus = (ob) => {
 }
 
 const getJobName = (ob) => {
-    if (ob.designationid.des === 'Manager') {
-        return '<p class="bg-info text-white rounded-2">' + ob.designationid.des + '</p>';
+    if (ob.designationid.name === 'Manager') {
+        return '<p class="bg-info text-white rounded-2">' + ob.designationid.name + '</p>';
     }
-    if (ob.designationid.des === 'Cashier') {
-        return '<p class="bg-dark text-white rounded-2">' + ob.designationid.des + '</p>';
+    if (ob.designationid.name === 'Cashier') {
+        return '<p class="bg-dark text-white rounded-2">' + ob.designationid.name + '</p>';
     }
-    if (ob.designationid.des === 'Store Manager') {
-        return '<p class="bg-warning text-white rounded-2">' + ob.designationid.des + '</p>';
+    if (ob.designationid.name === 'Store Manager') {
+        return '<p class="bg-warning text-white rounded-2">' + ob.designationid.name + '</p>';
     }
 }
 
