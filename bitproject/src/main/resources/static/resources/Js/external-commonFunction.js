@@ -32,4 +32,30 @@ const fillSelectOptions = (elementID, message, dataList) => {
 
 
 }
+//This function will get the data from the database
+//This function has only one argument
+//1) url -> java mapping (service url)
+//This function will return the data as an array
 
+//Example -> ajaxGetRequest("/employee/findall")
+
+const ajaxGetRequest = (url) =>{
+
+    let Response;
+    $.ajax("/employee/findall", {
+        async: false,
+        type: "Get",
+        contentType: "json",
+        success: function (data) {
+            console.log(data);
+            Response = data;
+        },
+        error: function (resOb) {
+            alert("error" + resOb);
+            Response = [];
+        }
+
+    });
+    return Response;
+
+}
