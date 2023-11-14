@@ -7,32 +7,44 @@ window.addEventListener('load', () => {
 });
 
 const refreshTable = () => {
-    users = [{
-        id: 1, employee_id: {id: 4, fullName: 'Haritha Pramodha', callingName: 'Haritha'}, status: true, name: 'haritha', email: 'haritha@gmail.com', role_id: {id: 2, name: 'Manager'}
-    }, {
-        id: 2, employee_id: {id: 5, fullName: 'Nuwan Bandara', callingName: 'Nuwan'}, status: false, name: 'nuwan', email: 'nuwan@gmail.com', role_id: {id: 3, name: 'Cashier'}
-    }];
+    users = [];
+    $.ajax("/user/findall", {
+        async: false,
+        type: "Get",
+        contentType: "json",
+        success: function (data) {
+            console.log(data);
+            users = data;
+            showCustomModal('Data Imported!', 'success');
+        },
+        error: function (resOb) {
+            alert("error" + resOb);
+        }
+
+    });
+
+
     displayPropertyList = [{property: getFullName, dataType: 'function'}, {property: 'name', dataType: 'text'}, {property: 'email', dataType: 'text'}, {
         property: getRole,
         dataType: 'function'
     }, {property: getStatus, dataType: 'function'}];
+
+
     fillDataIntoTable(dataTable, users, displayPropertyList, rowEdit, rowPrint, rowDelete);
     fillSelectOptions(selectEmp, 'Select Employee', users);
 }
 
 const getFullName = (ob) => {
 
-    if (ob.employee_id.fullName) {
-        return ob.employee_id.fullName;
+    if (ob.username) {
+        return ob.username;
     }
 
 }
 
 const getRole = (ob) => {
 
-    if (ob.role_id.name) {
-        return ob.role_id.name;
-    }
+
 }
 
 const getStatus = (ob) => {
