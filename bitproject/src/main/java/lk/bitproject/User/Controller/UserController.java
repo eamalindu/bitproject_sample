@@ -1,5 +1,7 @@
-package lk.bitproject.User;
+package lk.bitproject.User.Controller;
 
+import lk.bitproject.User.Entity.User;
+import lk.bitproject.User.Dao.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
