@@ -8,6 +8,9 @@ window.addEventListener('load', () => {
 
 const refreshTable = () => {
     users = [];
+    $(document).ajaxSend(function() {
+        $("#overlay").fadeIn(300);
+    });
     $.ajax("/user/findall", {
         async: false,
         type: "Get",
@@ -15,7 +18,7 @@ const refreshTable = () => {
         success: function (data) {
             console.log(data);
             users = data;
-            showCustomModal('Data Imported!', 'success');
+            $("#overlay").fadeOut(300);
         },
         error: function (resOb) {
             alert("error" + resOb);
@@ -24,13 +27,14 @@ const refreshTable = () => {
     });
 
 
-    displayPropertyList = [{property: getFullName, dataType: 'function'}, {property: 'name', dataType: 'text'}, {property: 'email', dataType: 'text'}, {
+    displayPropertyList = [{property: getFullName, dataType: 'function'}, {property: 'username', dataType: 'text'}, {property: 'email', dataType: 'text'}, {
         property: getRole,
         dataType: 'function'
     }, {property: getStatus, dataType: 'function'}];
 
 
     fillDataIntoTable(dataTable, users, displayPropertyList, rowEdit, rowPrint, rowDelete);
+
     fillSelectOptions(selectEmp, 'Select Employee', users);
 }
 

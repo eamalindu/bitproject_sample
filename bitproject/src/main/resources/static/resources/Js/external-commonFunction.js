@@ -24,7 +24,7 @@ const fillSelectOptions = (elementID, message, dataList) => {
 
     dataList.forEach(ob => {
         const option = document.createElement('option');
-        option.innerText = ob.name;
+        option.innerText = ob.username;
         //converting JavaScript values to JSON strings
         option.value = JSON.stringify(ob);
         selectElement.appendChild(option);
