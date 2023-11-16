@@ -307,7 +307,7 @@ const formDataSubmit = () => {
                     console.log("success " + data);
                     postServerResponse = data;
                 },
-                errors: function (resOb) {
+                error: function (resOb) {
                     console.log("Error " + resOb);
                     postServerResponse = resOb;
                 }
