@@ -282,7 +282,8 @@ const rowDelete = (ob, rowIndex) => {
     }
 }
 
-const errorCheck = () => {
+//check form errors
+const formErrorCheck = () => {
     let errors = '';
 
     if (employee.fullname == null) {
@@ -315,12 +316,13 @@ const errorCheck = () => {
 
 }
 
+//submit btn code
 const formDataSubmit = () => {
 
     console.log('Add EMP', employee)
 
-    //calling errorCheck() function to get and display errors of the form
-    const errors = errorCheck();
+    //calling formErrorCheck() function to get and display errors of the form
+    const errors = formErrorCheck();
 
     //continue, if there are no any errors
     if(errors===''){
@@ -383,18 +385,32 @@ const formDataSubmit = () => {
 
 }
 
+//update btn function
 const formDataUpdate =()=>{
     console.log("old")
     console.log(oldemployee)
     console.log("new")
     console.log(employee)
 
-    let errors= errorCheck();
+    let errors= formErrorCheck();
 
     if(errors===''){
+
+        let updates = checkFormDataUpdate();
 
     }
     else{
         showCustomModal(errors,'warning');
     }
+}
+
+
+//define function for check form updates
+const checkFormDataUpdate =()=>{
+
+    let updates = '';
+
+
+    return updates;
+
 }
