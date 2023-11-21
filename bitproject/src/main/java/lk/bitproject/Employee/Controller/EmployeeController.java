@@ -34,6 +34,7 @@ public class EmployeeController {
     //value = 'employee/findall' (<= how the browser will display it)
     // employee is added from the class level mapping
     @GetMapping(value = "/findall", produces = "application/json")
+    //sort desc
     public List<Employee> findAll() {
         return employeeDAO.findAll(Sort.by(Sort.Direction.DESC,"id"));
     }
