@@ -212,7 +212,7 @@ const rowEdit = (ob, rowIndex) => {
     fullName.value = ob.fullname;
     nic.value = ob.nic;
     email.value = ob.email;
-    designation.value = ob.designationid.des;
+    designation.value = ob.designationid.name;
     mobileNumber.value = ob.mobileNumber;
     address.value = ob.address;
     civilStatus.value = ob.civilStatus;
