@@ -15,6 +15,8 @@ window.addEventListener('load', () => {
     const designation = document.querySelector('#designation');
     const civilStatus = document.querySelector('#civilStatus');
     const empStatus = document.querySelector('#empStatus');
+    const maleRadio = document.querySelector('#inlineRadio1');
+    const femaleRadio = document.querySelector('#inlineRadio2');
 
 //dynamic select hard code
     employeeStatus = [];
@@ -209,16 +211,30 @@ const getUserAccstatus = (ob) => {
 }
 
 const rowEdit = (ob, rowIndex) => {
+    employee = JSON.parse(JSON.stringify(ob));
+    oldemployee = JSON.parse(JSON.stringify(ob));
+
     fullName.value = ob.fullname;
     nic.value = ob.nic;
     email.value = ob.email;
     designation.value = ob.designationid.name;
+    designation.selectedIndex = ob.designationid.id;
+    empStatus.value = ob.employeestatusid.name;
+    empStatus.selectedIndex =ob.employeestatusid.id;
     mobileNumber.value = ob.mobileNumber;
     address.value = ob.address;
     civilStatus.value = ob.civilStatus;
     callingName.value = ob.callingname;
     note.value = ob.note;
     landNumber.value = ob.landNumber;
+    dob.value = ob.dob;
+
+    if(ob.gender==="Male"){
+        inlineRadio1.checked = true;
+    }
+    else{
+        inlineRadio2.checked = true;
+    }
 }
 
 const rowPrint = (ob, rowIndex) => {
