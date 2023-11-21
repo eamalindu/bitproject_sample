@@ -3,6 +3,7 @@ package lk.bitproject.Employee.Controller;
 import lk.bitproject.Employee.Dao.EmployeeDAO;
 import lk.bitproject.Employee.Entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,7 +35,7 @@ public class EmployeeController {
     // employee is added from the class level mapping
     @GetMapping(value = "/findall", produces = "application/json")
     public List<Employee> findAll() {
-        return employeeDAO.findAll();
+        return employeeDAO.findAll(Sort.by(Sort.Direction.DESC,"id"));
     }
 
     //here {id} is a path variable
