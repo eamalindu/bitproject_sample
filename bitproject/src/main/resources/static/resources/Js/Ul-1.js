@@ -382,3 +382,10 @@ const formDataSubmit = () => {
 
 
 }
+
+const formDataUpdate =()=>{
+    console.log("old")
+    console.log(oldemployee)
+    console.log("new")
+    console.log(employee)
+}
