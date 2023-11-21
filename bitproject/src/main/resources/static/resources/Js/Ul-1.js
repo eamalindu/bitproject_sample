@@ -232,14 +232,37 @@ const rowDelete = (ob, rowIndex) => {
     const userResponse = confirm('You are about to delete the record of : ' + ob.fullname + '\nAre You Sure?');
     if (userResponse) {
         //server response
-        const serverResponse = 'OK';
-        if (serverResponse === 'OK') {
-            alert('Employee Record Delete Successfully!')
-            refreshTable();
-        } else {
-            alert('Employee Record Deletion Failed!\n' + serverResponse)
+        let postServerResponse;
+
+        $.ajax("/employee", {
+            type: "DELETE",
+            async: false,
+            contentType: "application/json",
+            data: JSON.stringify(ob),
+            success: function (data) {
+                console.log("success " + data);
+                postServerResponse = data;
+            },
+            error: function (resOb) {
+                console.log("Error " + resOb);
+                postServerResponse = resOb;
+            }
+        });
+        if(postServerResponse === "OK"){
+
+            showCustomModal("Employee Successfully Deleted!","success")
+
+            //refresh table after inserting a new data
             refreshTable();
         }
+
+        //if data passed unsuccessfully
+        //show an error alert
+        else
+        {
+            showCustomModal("Operation Failed! <br> Employee Record Not Deleted! "+postServerResponse,"error")
+        }
+
     }
 }
 
