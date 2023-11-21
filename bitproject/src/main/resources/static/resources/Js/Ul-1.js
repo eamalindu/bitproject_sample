@@ -398,6 +398,13 @@ const formDataUpdate =()=>{
 
         let updates = checkFormDataUpdate();
 
+        if(updates==""){
+            showCustomModal("No changes Detected!","info")
+        }
+        else{
+            showCustomModal("Following Changes Detected<br><br/>"+updates,"warning")
+        }
+
     }
     else{
         showCustomModal(errors,'warning');
@@ -410,6 +417,9 @@ const checkFormDataUpdate =()=>{
 
     let updates = '';
 
+    if(employee.email !== oldemployee.email){
+        updates = "<small class='fw-bold text-lowercase'>"+updates+oldemployee.email+"</small> <br>was Changed to <br><small class='fw-bold text-lowercase'>"+employee.email+"</small>";
+    }
 
     return updates;
 
