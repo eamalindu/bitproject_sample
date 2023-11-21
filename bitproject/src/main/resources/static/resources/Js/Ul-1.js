@@ -329,7 +329,7 @@ const formDataSubmit = () => {
             //show an error alert
             else
             {
-                showCustomModal("Operation Failed! <br> Employee Record Not Saved! ","error")
+                showCustomModal("Operation Failed! <br> Employee Record Not Saved! "+postServerResponse,"error")
             }
         }
 
