@@ -82,5 +82,17 @@ public class EmployeeController {
         }
     }
 
+    @DeleteMapping
+    public String deleteEmployee(@RequestBody Employee employee){
+
+        try {
+
+            return "OK";
+        }
+        catch (Exception ex){
+            return "Delete Not Completed";
+        }
+    }
+
 
 }
