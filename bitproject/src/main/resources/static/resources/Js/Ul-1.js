@@ -388,4 +388,13 @@ const formDataUpdate =()=>{
     console.log(oldemployee)
     console.log("new")
     console.log(employee)
+
+    let errors= errorCheck();
+
+    if(errors===''){
+
+    }
+    else{
+        showCustomModal(errors,'warning');
+    }
 }
