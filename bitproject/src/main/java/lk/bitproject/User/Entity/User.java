@@ -2,6 +2,7 @@ package lk.bitproject.User.Entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import lk.bitproject.Employee.Entity.Employee;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -46,6 +47,10 @@ public class User {
 
     @Column(name = "note")
     private String note;
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id",referencedColumnName = "id")
+    private Employee employeeId;
 
 
 }
