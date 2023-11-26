@@ -35,14 +35,13 @@ const refreshTable = () => {
 
     fillDataIntoTable(dataTable, users, displayPropertyList, rowEdit, rowPrint, rowDelete);
 
-    fillSelectOptions(selectEmp, 'Select Employee', users);
+    fillSelectOptions(selectEmp, 'Select Employee', users,'username');
 }
 
 const getFullName = (ob) => {
 
-    if (ob.username) {
-        return ob.username;
-    }
+        return ob.employeeId.fullname;
+
 
 }
 
