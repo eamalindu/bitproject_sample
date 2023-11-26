@@ -313,6 +313,8 @@ const formDataSubmit = () => {
                 refreshTable();
                 //refresh form
                 $('#frmEmployee').trigger("reset");
+                //reset from validation and dynamic components
+                refreshEmpForm();
             }
 
             //if data passed unsuccessfully
