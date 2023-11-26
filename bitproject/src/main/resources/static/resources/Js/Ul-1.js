@@ -1,62 +1,11 @@
 //browser onload event
 window.addEventListener('load', () => {
 
-//get all the inputs and button from the dom
-    const btnAdd = document.querySelector('#btnAdd');
-    const fullName = document.querySelector('#fullName');
-    const callingName = document.querySelector('#callingName');
-    const nic = document.querySelector('#nic');
-    const bday = document.querySelector('#dob');
-    const mobileNumber = document.querySelector('#mobileNumber');
-    const landNumber = document.querySelector('#landNumber');
-    const email = document.querySelector('#email');
-    const address = document.querySelector('#address');
-    const note = document.querySelector('#note');
-    const designation = document.querySelector('#designation');
-    const civilStatus = document.querySelector('#civilStatus');
-    const empStatus = document.querySelector('#empStatus');
-    const maleRadio = document.querySelector('#inlineRadio1');
-    const femaleRadio = document.querySelector('#inlineRadio2');
-
-//dynamic select hard code
-    employeeStatus = [];
-
-
-//Dynamic select external method
-    designationStatus = [];
-
-    $.ajax("/employeeStatus/findall", {
-        async: false,
-        type: "Get",
-        contentType: "json",
-        success: function (data) {
-            console.log(data);
-            employeeStatus = data;
-        },
-        error: function (resOb) {
-            alert("error" + resOb);
-        }
-
-    });
-
-    designationStatus = ajaxGetRequest("/designation/findall",)
-
-
-    //calling external function fillSelectOptions()
-    //Three parameters
-    //1) Element ID
-    //2) Display Message
-    //3) DataList
-
-    fillSelectOptions(designation, 'Select Your Designation', designationStatus);
-    fillSelectOptions(empStatus, 'Select Employee Status', employeeStatus);
-
-//refresh the table
+    //refresh the table
     refreshTable();
 
-
-    employee = {};
-
+    //refresh emp form
+    refreshEmpForm();
 
 //full name validation -> template 'FirstName LastName'
 //FirstName is only twenty characters, the first character should always be in uppercase, the Maximum characters are 20, and the minimum is 2
@@ -422,5 +371,18 @@ const checkFormDataUpdate =()=>{
     }
 
     return updates;
+
+}
+
+const refreshEmpForm=()=>{
+    //dynamic select hard code
+    employeeStatus = ajaxGetRequest("/employeeStatus/findall")
+    designationStatus = ajaxGetRequest("/designation/findall")
+
+    fillSelectOptions(designation, 'Select Your Designation', designationStatus);
+    fillSelectOptions(empStatus, 'Select Employee Status', employeeStatus);
+
+    employee = {};
+
 
 }
