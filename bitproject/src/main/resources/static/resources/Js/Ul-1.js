@@ -386,5 +386,13 @@ const refreshEmpForm=()=>{
 
     employee = {};
 
+    inputs = document.querySelectorAll('.empInput');
+    inputs.forEach(function (input) {
+        input.classList.remove('is-valid');
+        input.style.border = '1px solid #ced4da';
+        input.style.background = 'white';
+
+    })
+
 
 }
