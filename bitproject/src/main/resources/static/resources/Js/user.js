@@ -47,6 +47,7 @@ const getFullName = (ob) => {
 
 const getRole = (ob) => {
 
+    return ob.employeeId.designationid.name;
 
 }
 
@@ -59,36 +60,32 @@ const getStatus = (ob) => {
 }
 
 const rowEdit = (ob, rowIndex) => {
-    refreshTable();
-    const textUsernmae = document.querySelector('#textUserName');
-    const textEmail = document.querySelector('#textEmail');
-    const radioManger = document.querySelector('#radioManager');
-    const radioCashier = document.querySelector('#radioCashier');
-    const radioStore = document.querySelector('#radioStore');
-    const checkStatus = document.querySelector('#checkStatus');
-    const spanCheck = document.querySelector('#spanCheck');
 
-    textUsernmae.value = ob.name;
-    textEmail.value = ob.email;
+    textUserName.value = ob.username;
+    textEmail.value = ob.employeeId.email;
 
-    if (ob.role_id.name === 'Manager') {
-        radioManger.checked = true;
-    }
-    else if(ob.role_id.name === 'Cashier'){
-        radioCashier.checked = true;
-    }
-    else{
-        radioStore.checked = true;
-    }
+  //employee select
+    selectEmp.selectedIndex = ob.id;
 
+    //active status
     if(ob.status){
         checkStatus.checked = true;
-        spanCheck.innerText = 'Active';
+        spanCheck.innerText ='Active' ;
     }
     else{
         checkStatus.checked = false;
-        spanCheck.innerText = 'Not Active';
+        spanCheck.innerText ='Not Active' ;
     }
+    //role
+
+    if(ob.employeeId.designationid.name=="Manager"){
+        radioManager.checked = true;
+    }
+    else if(ob.employeeId.designationid.name=="Store Manager"){
+        radioStore.checked = true;
+    }
+
+
 
     document.querySelector('#btn-user-update').classList.remove('disabled')
 
