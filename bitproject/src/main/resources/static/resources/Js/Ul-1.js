@@ -381,8 +381,8 @@ const refreshEmpForm=()=>{
     employeeStatus = ajaxGetRequest("/employeeStatus/findall")
     designationStatus = ajaxGetRequest("/designation/findall")
 
-    fillSelectOptions(designation, 'Select Your Designation', designationStatus);
-    fillSelectOptions(empStatus, 'Select Employee Status', employeeStatus);
+    fillSelectOptions(designation, 'Select Your Designation', designationStatus,'name');
+    fillSelectOptions(empStatus, 'Select Employee Status', employeeStatus,'name');
 
     employee = {};
 
