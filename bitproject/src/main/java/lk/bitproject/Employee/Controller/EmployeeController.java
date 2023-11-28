@@ -102,7 +102,7 @@ public class EmployeeController {
             return "OK";
         }
         catch (Exception ex){
-            return "Delete Not Completed";
+            return "Delete Failed "+ex.getMessage();
         }
     }
 
