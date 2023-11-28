@@ -41,7 +41,7 @@ public class EmployeeController {
     @GetMapping(value = "/findall", produces = "application/json")
     //sort desc
     public List<Employee> findAll() {
-        return employeeDAO.findAll(Sort.by(Sort.Direction.DESC,"id"));
+        return employeeDAO.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 
     //here {id} is a path variable
@@ -57,15 +57,15 @@ public class EmployeeController {
         //check unique properties (They cant be already exist on the table)
 
         Employee empNic = employeeDAO.getByNIC(employee.getNic());
-        if(empNic!=null){
+        if (empNic != null) {
 
-            return "<br> NIC <small class='text-lowercase fw-bold'>"+employee.getNic()+"</small> Already Exists";
+            return "<br> NIC <small class='text-lowercase fw-bold'>" + employee.getNic() + "</small> Already Exists";
         }
 
         Employee empEmail = employeeDAO.getByEmail(employee.getEmail());
-        if(empEmail!=null){
+        if (empEmail != null) {
 
-            return "<br> Email <small class='text-lowercase fw-bold'>"+employee.getEmail()+"</small> Already Exists";
+            return "<br> Email <small class='text-lowercase fw-bold'>" + employee.getEmail() + "</small> Already Exists";
         }
 
         try {
@@ -73,10 +73,9 @@ public class EmployeeController {
             employee.setAddedDateTime(LocalDateTime.now());
             String empNextNumber = employeeDAO.getNextEmpNumber();
 
-            if(empNextNumber.equals(null) || empNextNumber.isEmpty()){
+            if (empNextNumber.equals(null) || empNextNumber.isEmpty()) {
                 employee.setEmpnumber("000001");
-            }
-            else{
+            } else {
                 employee.setEmpnumber(employeeDAO.getNextEmpNumber());
             }
 
@@ -84,36 +83,35 @@ public class EmployeeController {
             return "OK";
 
         } catch (Exception e) {
-            return "Save Failed "+e.getMessage();
+            return "Save Failed " + e.getMessage();
         }
     }
 
     @DeleteMapping
-    public String deleteEmployee(@RequestBody Employee employee){
+    public String deleteEmployee(@RequestBody Employee employee) {
 
         try {
             //soft delete
             //change employee Status to delete
-            EmployeeStatus deleteStatus =employeeStatusDAO.getReferenceById(3);
+            EmployeeStatus deleteStatus = employeeStatusDAO.getReferenceById(3);
             employee.setEmployeestatusid(deleteStatus);
             //update the employee record
             employeeDAO.save(employee);
 
             return "OK";
-        }
-        catch (Exception ex){
-            return "Delete Failed "+ex.getMessage();
+        } catch (Exception ex) {
+            return "Delete Failed " + ex.getMessage();
         }
     }
 
 
     //employee update
     @PutMapping
-    public String updateEmployee(@RequestBody Employee employee){
+    public String updateEmployee(@RequestBody Employee employee) {
 
         //check duplicate nic
         Employee empNic = employeeDAO.getByNIC(employee.getNic());
-        if(empNic!=null&&employee.getId()!=empNic.getId()){
+        if (empNic != null && employee.getId() != empNic.getId()) {
 
             //if true, given nic already exist in the database
             return "Update Failed NIC Already Exists";
@@ -121,7 +119,7 @@ public class EmployeeController {
 
         //check duplicate email
         Employee empEmail = employeeDAO.getByEmail(employee.getEmail());
-        if(empEmail!=null&&employee.getId()!=empEmail.getId()){
+        if (empEmail != null && (employee.getId() != empEmail.getId())) {
 
             //if true, given nic already exist in the database
             return "Update Failed Email Already Exists";
@@ -133,9 +131,8 @@ public class EmployeeController {
             employeeDAO.save(employee);
             return "OK";
 
-        }
-        catch (Exception ex){
-            return "Update Failed "+ex.getMessage();
+        } catch (Exception ex) {
+            return "Update Failed " + ex.getMessage();
         }
 
     }
