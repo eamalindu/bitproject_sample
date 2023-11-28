@@ -353,7 +353,15 @@ const formDataUpdate =()=>{
             showCustomModal("No changes Detected!","info");
         }
         else{
-            showCustomModal("Following Changes Detected<br><br/>"+updates,"warning");
+            showCustomConfirm("You are about to Update this record <br><br>Following Changes Detected!<br/><br>"+updates+"<br/><br>Are You Sure?",function (result){
+                if(result){
+
+                }
+                else{
+                    showCustomModal("Operation Cancelled!","info");
+                }
+            })
+
         }
 
     }
