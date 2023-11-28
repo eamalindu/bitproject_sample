@@ -111,9 +111,21 @@ public class EmployeeController {
     @PutMapping
     public String updateEmployee(@RequestBody Employee employee){
 
-        //check duplicate
+        //check duplicate nic
         Employee empNic = employeeDAO.getByNIC(employee.getNic());
+        if(empNic!=null&&employee.getId()!=empNic.getId()){
 
+            //if true, given nic already exist in the database
+            return "Update Failed NIC Already Exists";
+        }
+
+        //check duplicate email
+        Employee empEmail = employeeDAO.getByEmail(employee.getEmail());
+        if(empEmail!=null&&employee.getEmail()!=empEmail.getEmail()){
+
+            //if true, given nic already exist in the database
+            return "Update Failed Email Already Exists";
+        }
 
         try {
 
