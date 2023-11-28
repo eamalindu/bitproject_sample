@@ -350,10 +350,10 @@ const formDataUpdate =()=>{
         let updates = checkFormDataUpdate();
 
         if(updates==""){
-            showCustomModal("No changes Detected!","info")
+            showCustomModal("No changes Detected!","info");
         }
         else{
-            showCustomModal("Following Changes Detected<br><br/>"+updates,"warning")
+            showCustomModal("Following Changes Detected<br><br/>"+updates,"warning");
         }
 
     }
