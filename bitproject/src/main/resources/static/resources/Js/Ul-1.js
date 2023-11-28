@@ -355,6 +355,40 @@ const formDataUpdate =()=>{
         else{
             showCustomConfirm("You are about to Update this record <br><br>Following Changes Detected!<br/><br>"+updates+"<br/><br>Are You Sure?",function (result){
                 if(result){
+                    let postServerResponse;
+                    $.ajax("/employee", {
+                        type: "PUT",
+                        async: false,
+                        contentType: "application/json",
+                        data: JSON.stringify(employee),
+                        success: function (data) {
+                            console.log("success " + data);
+                            postServerResponse = data;
+                        },
+                        error: function (resOb) {
+                            console.log("Error " + resOb);
+                            postServerResponse = resOb;
+                        }
+                    });
+
+                    if(postServerResponse === "OK"){
+
+                        showCustomModal("Employee Successfully Updated!","success")
+
+                        //refresh table after inserting a new data
+                        refreshTable();
+                        //refresh form
+                        $('#frmEmployee').trigger("reset");
+                        //reset from validation and dynamic components
+                        refreshEmpForm();
+                    }
+
+                    //if data passed unsuccessfully
+                    //show an error alert
+                    else
+                    {
+                        showCustomModal("Operation Failed! <br> Employee Record Not Updated! "+postServerResponse,"error")
+                    }
 
                 }
                 else{
