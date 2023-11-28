@@ -114,7 +114,7 @@ public class EmployeeController {
         if (empNic != null && employee.getId() != empNic.getId()) {
 
             //if true, given nic already exist in the database
-            return "Update Failed NIC Already Exists";
+            return "NIC Already Exists";
         }
 
         //check duplicate email
@@ -122,7 +122,7 @@ public class EmployeeController {
         if (empEmail != null && (employee.getId() != empEmail.getId())) {
 
             //if true, given nic already exist in the database
-            return "Update Failed Email Already Exists";
+            return "Email Already Exists";
         }
 
         try {
