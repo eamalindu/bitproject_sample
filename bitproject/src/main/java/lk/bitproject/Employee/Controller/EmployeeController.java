@@ -113,7 +113,7 @@ public class EmployeeController {
 
         try {
 
-
+            employeeDAO.save(employee);
             return "OK";
 
         }
