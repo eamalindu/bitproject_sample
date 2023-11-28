@@ -121,7 +121,7 @@ public class EmployeeController {
 
         //check duplicate email
         Employee empEmail = employeeDAO.getByEmail(employee.getEmail());
-        if(empEmail!=null&&employee.getEmail()!=empEmail.getEmail()){
+        if(empEmail!=null&&employee.getId()!=empEmail.getId()){
 
             //if true, given nic already exist in the database
             return "Update Failed Email Already Exists";
