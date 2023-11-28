@@ -11,7 +11,7 @@
 //This function is called using window.load event handler
 //civilStatusDataList = [{id:1,name:'Single'},{id:2,name:'Married'},{id:3,name:'Divorced'}]
 //Example -> fillSelectOptions(civilStatus,'Please Select Your Civil Status',civilStatusDataList);
-const fillSelectOptions = (elementID, message, dataList,displayProperty) => {
+const fillSelectOptions = (elementID, message, dataList,displayProperty,selectedValue) => {
     const selectElement = elementID;
     selectElement.innerHTML = '';
     if (message !== '') {
@@ -27,6 +27,10 @@ const fillSelectOptions = (elementID, message, dataList,displayProperty) => {
         option.innerText = ob[displayProperty];
         //converting JavaScript values to JSON strings
         option.value = JSON.stringify(ob);
+
+        if(selectedValue==ob[displayProperty]){
+            option.selected = "selected";
+        }
         selectElement.appendChild(option);
     })
 
