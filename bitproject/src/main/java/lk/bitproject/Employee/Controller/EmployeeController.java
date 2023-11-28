@@ -111,7 +111,12 @@ public class EmployeeController {
     @PutMapping
     public String updateEmployee(@RequestBody Employee employee){
 
+        //check duplicate
+        Employee empNic = employeeDAO.getByNIC(employee.getNic());
+
+
         try {
+
 
             employeeDAO.save(employee);
             return "OK";
