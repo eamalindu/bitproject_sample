@@ -167,14 +167,15 @@ const rowEdit = (ob, rowIndex) => {
     nic.value = ob.nic;
     email.value = ob.email;
 
-    designation.value = ob.designationid.name;
-    designation.selectedIndex = ob.designationid.id;
+    //designation.value = ob.designationid.name;
+    //designation.selectedIndex = ob.designationid.id;
 
     //dynamic select (sir)
         //empStatus.value = ob.employeestatusid.name;
         //empStatus.selectedIndex =ob.employeestatusid.id;
 
     fillSelectOptions(empStatus, 'Select Employee Status', employeeStatus,'name',ob.employeestatusid.name);
+    fillSelectOptions(designation, 'Select Your Designation', designationStatus,'name',ob.designationid.name);
 
 
     mobileNumber.value = ob.mobileNumber;
