@@ -107,4 +107,11 @@ public class EmployeeController {
     }
 
 
+    //employee update
+    @PutMapping
+    public String updateEmployee(@RequestBody Employee employee){
+
+
+    }
+
 }
