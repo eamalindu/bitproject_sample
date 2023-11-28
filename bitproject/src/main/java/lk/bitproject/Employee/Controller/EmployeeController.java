@@ -111,6 +111,15 @@ public class EmployeeController {
     @PutMapping
     public String updateEmployee(@RequestBody Employee employee){
 
+        try {
+
+
+            return "OK";
+
+        }
+        catch (Exception ex){
+            return "Update Failed "+ex.getMessage();
+        }
 
     }
 
