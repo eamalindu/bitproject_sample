@@ -166,6 +166,14 @@ const checkUserFormUpdates=() =>{
     if(user.username!==oldUser.username){
         updates = updates+"Username is change to "+user.username;
     }
+    if(user.email!==oldUser.email){
+        updates = updates+"Email is change to "+user.email;
+    }
+    if(user.status!==oldUser.status){
+        updates = updates+"Status is change to "+user.status;
+    }
+
+
 
 
     return updates;
