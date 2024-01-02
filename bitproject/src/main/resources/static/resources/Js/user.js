@@ -60,6 +60,8 @@ const getStatus = (ob) => {
 }
 
 const rowEdit = (ob, rowIndex) => {
+    user = JSON.parse(JSON.stringify(ob));
+    oldUser = JSON.parse(JSON.stringify(ob));
 
     textUserName.value = ob.username;
     textEmail.value = ob.employeeId.email;
