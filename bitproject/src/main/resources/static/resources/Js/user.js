@@ -102,7 +102,7 @@ const rowPrint = (ob, rowIndex) => {
     newWindow.document.write(
         "<head>" +
         "<link href='resources/style/table-1.css' rel='stylesheet'><link href='resources/bootstrap-5.2.3/css/bootstrap.min.css' rel='stylesheet'>" +
-        "</head><div class='container w-50 mt-4'>" +
+        "</head><div class='container w-75 mt-4'>" +
         "<h3 class='fw-bold'>User Details of "+ ob.employeeId.fullname+"</h3>"+
         "<table class='custom-table small table-responsive-sm border-1 mt-3'>" +
         "<tr>" +
