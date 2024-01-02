@@ -102,13 +102,27 @@ const rowDelete = (ob, rowIndex) => {
 showCustomConfirm('You are about to delete the record of :<br/> ' + ob.employeeId.fullname + '<br/>Are You Sure?',function (result) {
 
     if (result) {
-        //server response
-        const serverResponse = 'OK';
+        let serverResponse;
+        $.ajax("/user", {
+            async: false,
+            type: "DELETE",
+            contentType: "application/json",
+            data: JSON.stringify(ob),
+            success: function (data) {
+                console.log(data);
+                serverResponse = data;
+            },
+            error: function (resOb) {
+                serverResponse = resOb;
+            }
+
+        });
+
         if (serverResponse === 'OK') {
             showCustomModal('Employee Record Delete Successfully!','success')
             refreshTable();
         } else {
-            alert('Employee Record Deletion Failed!\n' + serverResponse)
+            showCustomModal('Employee Record Deletion Failed!\n' + serverResponse,'error')
             refreshTable();
         }
     }
