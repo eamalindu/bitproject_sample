@@ -8,9 +8,6 @@ window.addEventListener('load', () => {
 
 const refreshTable = () => {
     users = [];
-    $(document).ajaxSend(function() {
-        $("#overlay").fadeIn(300);
-    });
     $.ajax("/user/findall", {
         async: false,
         type: "Get",
@@ -18,7 +15,6 @@ const refreshTable = () => {
         success: function (data) {
             console.log(data);
             users = data;
-            $("#overlay").fadeOut(300);
         },
         error: function (resOb) {
             alert("error" + resOb);
@@ -34,8 +30,8 @@ const refreshTable = () => {
 
 
     fillDataIntoTable(dataTable, users, displayPropertyList, rowEdit, rowPrint, rowDelete);
-
-    fillSelectOptions(selectEmp, 'Select Employee', users,'username');
+    employeeWithOutUserAccount = ajaxGetRequest("/employee/test")
+    fillSelectOptions(selectEmp,'Select Employee',employeeWithOutUserAccount,'fullname')
 }
 
 const getFullName = (ob) => {
@@ -62,6 +58,10 @@ const getStatus = (ob) => {
 const rowEdit = (ob, rowIndex) => {
     user = JSON.parse(JSON.stringify(ob));
     oldUser = JSON.parse(JSON.stringify(ob));
+
+    //disable inputs
+    textPassword.disabled = true;
+    textRePassword.disabled = true;
 
     textUserName.value = ob.username;
     textEmail.value = ob.employeeId.email;

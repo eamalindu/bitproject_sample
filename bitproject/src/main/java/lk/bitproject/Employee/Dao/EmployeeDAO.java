@@ -20,4 +20,7 @@ public interface EmployeeDAO extends JpaRepository<Employee,Integer> {
     //get * info from given email
     @Query(value = "SELECT e from Employee e where e.email=?1")
     Employee getByEmail(String email);
+
+    @Query(value = "select e from Employee e where e.id not in (select u.employeeId from User u where u.employeeId is not null)")
+    List<Employee> getEmployeesWithoutUserAccount();
 }

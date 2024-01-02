@@ -51,6 +51,11 @@ public class EmployeeController {
         return "EMPs";
     }
 
+    @GetMapping(value = "/test",produces = "application/json")
+    public List<Employee> getEmployeesWithoutUserAccount(){
+        return employeeDAO.getEmployeesWithoutUserAccount();
+    }
+
     @PostMapping
     public String saveEmployee(@RequestBody Employee employee) {
 
