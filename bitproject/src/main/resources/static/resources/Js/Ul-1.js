@@ -97,12 +97,13 @@ const refreshTable = () => {
     //datatype -> specific data type for mentioned column (can be string, int, object, boolean, array, date)
     //dataType -> text = string, number, date
     //dataType -> function = object, array, boolean
-    displayPropertyList = [{property: 'fullname', dataType: 'text'}, {
-        property: 'nic',
-        dataType: 'text'
-    }, {property: 'email', dataType: 'text'}, {
-        property: getJobName, dataType: 'function'
-    }, {property: getUserAccstatus, dataType: 'function'}, {
+    displayPropertyList =
+        [
+            {property: 'fullname', dataType: 'text'},
+            {property: 'nic', dataType: 'text'},
+            {property: 'email', dataType: 'text'},
+            {property: getJobName, dataType: 'function'},
+            {property: getUserAccstatus, dataType: 'function'}, {
         property: 'mobileNumber',
         dataType: 'text'
     }, {property: getEmployeeStatus, dataType: 'function'}];
@@ -363,21 +364,21 @@ const formDataUpdate =()=>{
         else{
             showCustomConfirm("You are about to Update this record <br><br>Following Changes Detected!<br/><br>"+updates+"<br/><br>Are You Sure?",function (result){
                 if(result){
-                    let postServerResponse;
-                    $.ajax("/employee", {
-                        type: "PUT",
-                        async: false,
-                        contentType: "application/json",
-                        data: JSON.stringify(employee),
-                        success: function (data) {
-                            console.log("success " + data);
-                            postServerResponse = data;
-                        },
-                        error: function (resOb) {
-                            console.log("Error " + resOb);
-                            postServerResponse = resOb;
-                        }
-                    });
+                        let postServerResponse;
+                        $.ajax("/employee", {
+                            type: "PUT",
+                            async: false,
+                            contentType: "application/json",
+                            data: JSON.stringify(employee),
+                            success: function (data) {
+                                console.log("success " + data);
+                                postServerResponse = data;
+                            },
+                            error: function (resOb) {
+                                console.log("Error " + resOb);
+                                postServerResponse = resOb;
+                            }
+                        });
 
                     if(postServerResponse === "OK"){
 

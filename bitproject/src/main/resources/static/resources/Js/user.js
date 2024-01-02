@@ -98,7 +98,7 @@ const rowPrint = (ob, rowIndex) => {
 const rowDelete = (ob, rowIndex) => {
     //Highlight the selected row
     //tblEmp.children[1].children[rowIndex].style.backgroundColor = 'red';
-
+    console.log("delete",ob,rowIndex)
     const userResponse = confirm('You are about to delete the record of : ' + ob.employeeId.fullname + '\nAre You Sure?');
     if (userResponse) {
         //server response
