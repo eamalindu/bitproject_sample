@@ -112,5 +112,8 @@ showCustomConfirm('You are about to delete the record of :<br/> ' + ob.employeeI
             refreshTable();
         }
     }
+    else{
+        showCustomModal('Operation Cancelled!','info')
+    }
 });
 }
