@@ -104,7 +104,7 @@ const rowPrint = (ob, rowIndex) => {
         "<link href='resources/style/table-1.css' rel='stylesheet'><link href='resources/bootstrap-5.2.3/css/bootstrap.min.css' rel='stylesheet'>" +
         "</head><div class='container w-75 mt-4'>" +
         "<h3 class='fw-bold'>User Details of "+ ob.employeeId.fullname+"</h3>"+
-        "<table class='table table-bordered small table-responsive-sm mt-3'>" +
+        "<table class='table table-bordered table-info small table-responsive-sm mt-3'>" +
         "<tr>" +
         "<th>Username</th>" +
         "<th>Email</th>"+
