@@ -63,14 +63,18 @@ const rowEdit = (ob, rowIndex) => {
     textPassword.disabled = true;
     textRePassword.disabled = true;
 
-    textUserName.value = ob.username;
-    textEmail.value = ob.employeeId.email;
+    textUserName.value = user.username;
+    textEmail.value = user.employeeId.email;
 
   //employee select
-    selectEmp.selectedIndex = ob.id;
+    employeeWithOutUserAccount = ajaxGetRequest("/employee/test")
+    employeeWithOutUserAccount.push(user.employeeId)
+    fillSelectOptions(selectEmp,'Select Employee',employeeWithOutUserAccount,'fullname',user.employeeId.fullname)
+
+    selectEmp.selectedIndex = user.id;
 
     //active status
-    if(ob.status){
+    if(user.status){
         checkStatus.checked = true;
         spanCheck.innerText ='Active' ;
     }
@@ -80,10 +84,10 @@ const rowEdit = (ob, rowIndex) => {
     }
     //role
 
-    if(ob.employeeId.designationid.name=="Manager"){
+    if(user.employeeId.designationid.name=="Manager"){
         radioManager.checked = true;
     }
-    else if(ob.employeeId.designationid.name=="Store Manager"){
+    else if(user.employeeId.designationid.name=="Store Manager"){
         radioStore.checked = true;
     }
 
