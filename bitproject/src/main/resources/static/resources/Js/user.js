@@ -145,10 +145,17 @@ const updateUser = ()=>{
     //check form update
     let updates = checkUserFormUpdates();
     if(updates!==""){
-        alert(updates)
+      showCustomConfirm(updates,function (userConfirm){
+        if(userConfirm){
+
+        }
+        else{
+            showCustomModal("Operation Cancelled!",'info')
+        }
+      });
     }
     else{
-
+        showCustomModal("No Changes Detected!",'info')
     }
 
     //check user confirm
