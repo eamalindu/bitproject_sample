@@ -71,7 +71,7 @@ const rowEdit = (ob, rowIndex) => {
     employeeWithOutUserAccount.push(user.employeeId)
     fillSelectOptions(selectEmp,'Select Employee',employeeWithOutUserAccount,'fullname',user.employeeId.fullname)
 
-    selectEmp.selectedIndex = user.id;
+    //selectEmp.selectedIndex = user.id;
 
     //active status
     if(user.status){
