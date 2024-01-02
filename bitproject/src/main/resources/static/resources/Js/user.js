@@ -101,11 +101,11 @@ const rowDelete = (ob, rowIndex) => {
     console.log("delete",ob,rowIndex)
 showCustomConfirm('You are about to delete the record of :<br/> ' + ob.employeeId.fullname + '<br/>Are You Sure?',function (result) {
 
-    if (userResponse) {
+    if (result) {
         //server response
         const serverResponse = 'OK';
         if (serverResponse === 'OK') {
-            alert('Employee Record Delete Successfully!')
+            showCustomModal('Employee Record Delete Successfully!','success')
             refreshTable();
         } else {
             alert('Employee Record Deletion Failed!\n' + serverResponse)
