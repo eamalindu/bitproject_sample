@@ -99,7 +99,8 @@ const rowDelete = (ob, rowIndex) => {
     //Highlight the selected row
     //tblEmp.children[1].children[rowIndex].style.backgroundColor = 'red';
     console.log("delete",ob,rowIndex)
-    const userResponse = confirm('You are about to delete the record of : ' + ob.employeeId.fullname + '\nAre You Sure?');
+showCustomConfirm('You are about to delete the record of :<br/> ' + ob.employeeId.fullname + '<br/>Are You Sure?',function (result) {
+
     if (userResponse) {
         //server response
         const serverResponse = 'OK';
@@ -111,4 +112,5 @@ const rowDelete = (ob, rowIndex) => {
             refreshTable();
         }
     }
+});
 }
