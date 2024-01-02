@@ -147,6 +147,32 @@ const updateUser = ()=>{
     if(updates!==""){
       showCustomConfirm(updates,function (userConfirm){
         if(userConfirm){
+            let postServerResponse;
+            $.ajax("/user", {
+                type: "PUT",
+                async: false,
+                contentType: "application/json",
+                data: JSON.stringify(user),
+                success: function (data) {
+                    console.log("success " + data);
+                    postServerResponse = data;
+                },
+                error: function (resOb) {
+                    console.log("Error " + resOb);
+                    postServerResponse = resOb;
+                }
+            });
+
+            if(postServerResponse === "OK"){
+                showCustomModal("User Updated!",'success')
+                refreshTable();
+                //enable inputs
+                textPassword.disabled = false;
+                textRePassword.disabled = false;
+            }
+            else{
+                showCustomModal("Update Failed!",'error')
+            }
 
         }
         else{
