@@ -38,8 +38,8 @@ public class UserController {
             return "Delete Failed! No Such User";
         }
         try{
-            user.setStatus(false);
-            userDAO.save(user);
+            currentUser.setStatus(false);
+            userDAO.save(currentUser);
 
             return "OK";
             //dependencies
