@@ -3,9 +3,7 @@ import lk.bitproject.User.Entity.User;
 import lk.bitproject.User.Dao.UserDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -30,6 +28,24 @@ public class UserController {
         return userDAO.findAll();
     }
 
+    @DeleteMapping
+    public String deleteUser(@RequestBody User user){
+
+        User currentUser = userDAO.getReferenceById(user.getId());
+        if(currentUser==null){
+            return "Delete Failed! No Such User";
+        }
+        try{
+            user.setStatus(false);
+            userDAO.save(user);
+
+            return "OK";
+        }
+        catch (Exception ex){
+            return "Delete Failed " + ex.getMessage();
+        }
+
+    }
 
 
 
