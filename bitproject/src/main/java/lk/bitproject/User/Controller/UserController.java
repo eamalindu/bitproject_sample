@@ -31,6 +31,8 @@ public class UserController {
     @DeleteMapping
     public String deleteUser(@RequestBody User user){
 
+        //authentication and authorization should be done first
+        //check existing
         User currentUser = userDAO.getReferenceById(user.getId());
         if(currentUser==null){
             return "Delete Failed! No Such User";
@@ -40,6 +42,7 @@ public class UserController {
             userDAO.save(user);
 
             return "OK";
+            //dependencies
         }
         catch (Exception ex){
             return "Delete Failed " + ex.getMessage();
