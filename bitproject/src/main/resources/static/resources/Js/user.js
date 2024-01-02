@@ -137,3 +137,29 @@ showCustomConfirm('You are about to delete the record of :<br/> ' + ob.employeeI
     }
 });
 }
+
+const updateUser = ()=>{
+
+    //check form errors
+
+    //check form update
+    let updates = checkUserFormUpdates();
+    if(updates!==""){
+        alert(updates)
+    }
+    else{
+
+    }
+
+    //check user confirm
+}
+
+const checkUserFormUpdates=() =>{
+    let updates = '';
+    if(user.username!==oldUser.username){
+        updates = updates+"Username is change to "+user.username;
+    }
+
+
+    return updates;
+}
