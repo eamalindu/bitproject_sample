@@ -62,3 +62,23 @@ const ajaxGetRequest = (url) =>{
     return Response;
 
 }
+
+const ajaxHttpRequest = (url,method,dataObject)=>{
+    let serviceRequestResponse;
+
+    $.ajax(url, {
+        type: method,
+        async: false,
+        contentType: "application/json",
+        data: JSON.stringify(dataObject),
+        success: function (data) {
+            console.log("success " + data);
+            serviceRequestResponse = data;
+        },
+        error: function (resOb) {
+            console.log("Error " + resOb);
+            serviceRequestResponse = resOb;
+        }
+    });
+    return serviceRequestResponse;
+}
