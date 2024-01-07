@@ -229,5 +229,5 @@ const checkUserFormUpdates=() =>{
 const refreshUserForm = () => {
     user = {};
     employeeWithOutUserAccount = ajaxGetRequest("/employee/test")
-    fillSelectOptions(selectEmp,'Select Employee',employeeWithOutUserAccount,'fullname')
+    fillSelectOptionsWithTwo(selectEmp,'Select Employee',employeeWithOutUserAccount,'fullname','empnumber')
 };
