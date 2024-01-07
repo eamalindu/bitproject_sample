@@ -3,7 +3,7 @@ window.addEventListener('load', () => {
     //refresh table when browser loads
     refreshTable();
 
-    user = new Object();
+    refreshUserForm();
 });
 
 const refreshTable = () => {
@@ -227,3 +227,7 @@ const checkUserFormUpdates=() =>{
 
     return updates;
 }
+const refreshUserForm = () => {
+    user = {};
+
+};
