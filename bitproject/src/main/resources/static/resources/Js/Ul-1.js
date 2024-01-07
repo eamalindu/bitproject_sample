@@ -115,6 +115,7 @@ const refreshTable = () => {
 //3 parameter -> display Property List (Column headers)
     fillDataIntoTable(tblEmp, employees, displayPropertyList, rowEdit, rowPrint, rowDelete);
 
+    $('#tblEmp').DataTable();
 }
 
 //defining the getEmployeeStatus that was created by displayPropertyList
