@@ -88,7 +88,13 @@
                             <label for="checkStatus">Status :</label>
                         </td>
                         <td>
-                            <input id="checkStatus" class="form-check-inline" type="checkbox" value="Active" onclick="user.status=this.value"><span>User Account is <strong id="spanCheck">Not Active</strong></span>
+                            <input id="checkStatus" class="form-check-inline" type="checkbox" value="Active" onchange="if (this.checked){
+                                user.status = true;
+                                spanCheck.innerText = 'Active';
+                            }else{
+                                user.status = false;
+                                spanCheck.innerText = 'Not Active';
+                            }"><span>User Account is <strong id="spanCheck">Not Active</strong></span>
                         </td>
                     </tr>
 
