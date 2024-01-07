@@ -30,8 +30,7 @@ const refreshTable = () => {
 
 
     fillDataIntoTable(dataTable, users, displayPropertyList, rowEdit, rowPrint, rowDelete);
-    employeeWithOutUserAccount = ajaxGetRequest("/employee/test")
-    fillSelectOptions(selectEmp,'Select Employee',employeeWithOutUserAccount,'fullname')
+
 }
 
 const getFullName = (ob) => {
@@ -229,5 +228,6 @@ const checkUserFormUpdates=() =>{
 }
 const refreshUserForm = () => {
     user = {};
-
+    employeeWithOutUserAccount = ajaxGetRequest("/employee/test")
+    fillSelectOptions(selectEmp,'Select Employee',employeeWithOutUserAccount,'fullname')
 };
