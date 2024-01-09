@@ -29,7 +29,7 @@
                             <label for="selectEmp">Employee :</label>
                         </td>
                         <td>
-                            <select id="selectEmp" class="form-select">
+                            <select id="selectEmp" class="form-select" onchange="selectDynamicValueValidator(this,'','user','employeeId')">
                                 <option disabled selected></option>
                             </select>
                         </td>
@@ -59,7 +59,7 @@
                             <label for="textRePassword">Re-Password :</label>
                         </td>
                         <td>
-                            <input type="password" id="textRePassword" class="form-control"/>
+                            <input type="password" id="textRePassword" class="form-control" onkeyup="user.password=this.value"/>
                         </td>
                     </tr>
 
