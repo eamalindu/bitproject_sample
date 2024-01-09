@@ -1,0 +1,75 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.card-login {
+    display: block;
+    width: 20%;
+    height: 70vh;
+    margin-top: 7.5vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5vh;
+    text-align: center;
+}
+
+.card-login img {
+    width: 200px;
+    aspect-ratio: 1/1;
+    margin-bottom: 30px;
+
+
+}
+
+.card-login form {
+    text-align: left;
+}
+
+.card-login form label {
+    padding-left: calc(5% - 10px);
+}
+
+.card-login input[type='text'], input[type='password'] {
+    margin-left: calc(5% - 10px);
+    margin-top: 10px;
+    width: 90%;
+    height: 20px;
+    background: #1c1c1c;
+    padding: 10px;
+    border: none;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+.card-login input[type='submit'] {
+    margin-top: 15px;
+    margin-left: calc(5% - 10px);
+    width: 95%;
+    height: 40px;
+    background: white;
+    padding: 10px;
+    border: none;
+    font-family: Tahoma, sans-serif;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: scale ease-in-out 500ms;
+
+}
+.card-login input[type='submit']:hover{
+    cursor: pointer;
+    scale: 1.05;
+    transition: scale ease-in-out 500ms;
+}
