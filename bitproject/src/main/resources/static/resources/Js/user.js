@@ -42,7 +42,17 @@ const getFullName = (ob) => {
 
 const getRole = (ob) => {
 
-    return ob.employeeId.designationid.name;
+    let userRoles ='';
+    ob.roles.forEach((element,index)=>{
+        if(ob.roles.length-1==index) {
+            userRoles = userRoles + element.name;
+        }
+        else{
+            userRoles = userRoles + element.name+", ";
+        }
+    });
+
+    return userRoles;
 
 }
 
