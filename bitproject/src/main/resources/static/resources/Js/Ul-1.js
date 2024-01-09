@@ -197,6 +197,7 @@ const rowEdit = (ob, rowIndex) => {
 }
 
 const rowPrint = (ob, rowIndex) => {
+    $('#modalPrint').modal('show')
 
 }
 
