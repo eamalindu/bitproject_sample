@@ -197,6 +197,7 @@ const rowEdit = (ob, rowIndex) => {
 }
 
 const rowPrint = (ob, rowIndex) => {
+    exampleModalLabel.innerHTML = "Showing the Details of : <b>"+ob.fullname;
     $('#modalPrint').modal('show')
 
 }
