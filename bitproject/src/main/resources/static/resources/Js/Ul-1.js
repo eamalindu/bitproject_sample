@@ -198,6 +198,11 @@ const rowEdit = (ob, rowIndex) => {
 
 const rowPrint = (ob, rowIndex) => {
     exampleModalLabel.innerHTML = "Showing the Details of : <b>"+ob.fullname;
+    printTableFullName.innerText=ob.fullname;
+    printTableCallingName.innerText=ob.callingname;
+    printTableEmail.innerText=ob.email;
+    printTableMobile.innerText=ob.mobileNumber;
+
     $('#modalPrint').modal('show')
 
 }
