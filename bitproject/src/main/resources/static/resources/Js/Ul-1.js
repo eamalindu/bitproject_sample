@@ -203,8 +203,22 @@ const rowPrint = (ob, rowIndex) => {
     printTableEmail.innerText=ob.email;
     printTableMobile.innerText=ob.mobileNumber;
 
-    $('#modalPrint').modal('show')
+    $('#modalPrint').modal('show');
 
+}
+
+const empPrint = ()=>{
+    let newWindow =   window.open()
+    newWindow.document.write(
+        "<head>" +
+        "<link href='resources/style/table-1.css' rel='stylesheet'><link href='resources/bootstrap-5.2.3/css/bootstrap.min.css' rel='stylesheet'>" +
+        "</head><div class='container w-75 mt-4'>" +
+            tblPrint+
+        "</div>"
+    )
+    setTimeout(function (){
+        newWindow.print();
+    },200)
 }
 
 const rowDelete = (ob, rowIndex) => {
