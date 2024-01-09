@@ -77,9 +77,11 @@
                             <label for="check-role">Role :</label>
                         </td>
                         <td>
+                            <div id="columnRole">
                             <input type="radio" name="role" id="radioManager"> <span style="margin-right: 5%"> Manager </span>
                             <input type="radio" name="role" id="radioCashier"> <span style="margin-right:5%"> Cashier </span>
                             <input type="radio" name="role" id="radioStore"> <span style="margin-right: 5%"> Store Manager </span>
+                            </div>
                         </td>
                     </tr>
 
@@ -104,7 +106,7 @@
                         </td>
                         <td>
                             <button id="btn-user-update" class="btn btn-warning float-end text-white disabled" onclick="updateUser()">Update</button>
-                            <button id="btn-user-add" class="btn btn-success float-end me-2">Add</button>
+                            <button id="btn-user-add" class="btn btn-success float-end me-2" onclick="addUser()">Add</button>
                         </td>
                     </tr>
                 </form>

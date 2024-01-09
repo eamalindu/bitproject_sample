@@ -230,5 +230,36 @@ const refreshUserForm = () => {
     user = {};
     user.roles = [];
     employeeWithOutUserAccount = ajaxGetRequest("/employee/test")
+    allRoles = ajaxGetRequest("/role/findall")
     fillSelectOptionsWithTwo(selectEmp,'Select Employee',employeeWithOutUserAccount,'fullname','empnumber')
-};
+
+    columnRole.innerHTML= "";
+    allRoles.forEach(role=>{
+        let div = document.createElement('div')
+        let checkbox = document.createElement("input")
+        let span = document.createElement("span")
+        div.classList.add('d-block-inline')
+        checkbox.type="checkbox";
+        checkbox.classList.add('form-check','form-check-inline');
+        span.innerText = role.name;
+        span.classList.add('form-check-label')
+
+        div.appendChild(checkbox)
+        div.appendChild(span)
+        columnRole.appendChild(div)
+
+        checkbox.onchange=function (){
+            if(this.checked){
+                user.roles.push(role)
+            }
+            else{
+                user.roles.pop(role)
+            }
+        }
+    });
+
+}
+const addUser = ()=>{
+    console.log(user);
+
+}
