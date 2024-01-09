@@ -54,6 +54,8 @@ public class User {
     @JoinColumn(name = "employee_id",referencedColumnName = "id")
     private Employee employeeId;
 
+    //Mapping Many-to-Many relationship
+    //Using User and Role tables
     @ManyToMany
     @JoinTable(name = "user_has_role",joinColumns = @JoinColumn(name = "user_id"),inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
