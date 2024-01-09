@@ -92,7 +92,36 @@ const rowEdit = (ob, rowIndex) => {
         spanCheck.innerText ='Not Active' ;
     }
     //role
+    allRoles = ajaxGetRequest("/role/findall")
+    columnRole.innerHTML= "";
+    allRoles.forEach(role=>{
+        let div = document.createElement('div')
+        let checkbox = document.createElement("input")
+        let span = document.createElement("span")
+        div.classList.add('d-block-inline')
+        checkbox.type="checkbox";
+        checkbox.classList.add('form-check','form-check-inline');
+        span.innerText = role.name;
+        span.classList.add('form-check-label')
 
+        div.appendChild(checkbox)
+        div.appendChild(span)
+        columnRole.appendChild(div)
+
+        checkbox.onchange=function (){
+            if(this.checked){
+                user.roles.push(role)
+            }
+            else{
+                user.roles.pop(role)
+            }
+        }
+
+        let extIndex = user.roles.map(item=>item.name).indexOf(role.name);
+        if(extIndex!=-1){
+            checkbox.checked = true;
+        }
+    });
 
 
     document.querySelector('#btn-user-update').classList.remove('disabled')
@@ -251,9 +280,9 @@ const refreshUserForm = () => {
     user = {};
     user.roles = [];
     employeeWithOutUserAccount = ajaxGetRequest("/employee/test")
-    allRoles = ajaxGetRequest("/role/findall")
     fillSelectOptionsWithTwo(selectEmp,'Select Employee',employeeWithOutUserAccount,'fullname','empnumber')
 
+    allRoles = ajaxGetRequest("/role/findall")
     columnRole.innerHTML= "";
     allRoles.forEach(role=>{
         let div = document.createElement('div')
@@ -277,10 +306,6 @@ const refreshUserForm = () => {
                 user.roles.pop(role)
             }
 
-            let extIndex = user.roles.map(item=>item.name).indexOf(role.name);
-            if(extIndex!=1){
-                checkbox.checked = true;
-            }
 
         }
     });
