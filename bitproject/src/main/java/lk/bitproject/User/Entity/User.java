@@ -3,11 +3,13 @@ package lk.bitproject.User.Entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lk.bitproject.Employee.Entity.Employee;
+import lk.bitproject.Privilege.Entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -52,5 +54,8 @@ public class User {
     @JoinColumn(name = "employee_id",referencedColumnName = "id")
     private Employee employeeId;
 
+    @ManyToMany
+    @JoinTable(name = "user_has_role",joinColumns = @JoinColumn(name = "user_id"),inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
 }
