@@ -93,13 +93,6 @@ const rowEdit = (ob, rowIndex) => {
     }
     //role
 
-    if(user.employeeId.designationid.name=="Manager"){
-        radioManager.checked = true;
-    }
-    else if(user.employeeId.designationid.name=="Store Manager"){
-        radioStore.checked = true;
-    }
-
 
 
     document.querySelector('#btn-user-update').classList.remove('disabled')
@@ -230,9 +223,27 @@ const checkUserFormUpdates=() =>{
     if(user.status!==oldUser.status){
         updates = updates+"Status is change to "+user.status;
     }
+    if(user.roles.length!==oldUser.roles.length){
+        updates = updates+"User Role is change to "+user.roles;
+    }
+    else{
+        let equalCount = 0;
+        for (i=0;i<user.roles.length;i++) {
+
+            for (j=0;j<oldUser.roles.length;j++){
+                if(user.roles[i].name===oldUser.roles[j].name){
+                    equalCount = equalCount+1;
+                    break;
+                }
+
+            }
+        }
+        if(equalCount!==user.roles.length){
+            updates = updates+"User Role is change to "+user.roles;
+        }
 
 
-
+    }
 
     return updates;
 }
@@ -265,6 +276,12 @@ const refreshUserForm = () => {
             else{
                 user.roles.pop(role)
             }
+
+            let extIndex = user.roles.map(item=>item.name).indexOf(role.name);
+            if(extIndex!=1){
+                checkbox.checked = true;
+            }
+
         }
     });
 
