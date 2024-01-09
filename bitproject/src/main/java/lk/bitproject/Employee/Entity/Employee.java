@@ -83,7 +83,14 @@ public class Employee {
     @JoinColumn(name = "designation_id",referencedColumnName = "id")
     private Designation designationid;
 
-
+    //new constructor to send the only required column
+public Employee(Integer id, String fullname, String email,String mobileNumber,EmployeeStatus employeestatusid){
+    this.id =id;
+    this.fullname = fullname;
+    this.email = email;
+    this.mobileNumber = mobileNumber;
+    this.employeestatusid = employeestatusid;
+}
 
 
 
