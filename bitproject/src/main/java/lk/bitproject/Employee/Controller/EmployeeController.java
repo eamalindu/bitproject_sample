@@ -41,7 +41,7 @@ public class EmployeeController {
     @GetMapping(value = "/findall", produces = "application/json")
     //sort desc
     public List<Employee> findAll() {
-        return employeeDAO.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        return employeeDAO.findAll();
     }
 
     //here {id} is a path variable

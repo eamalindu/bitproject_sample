@@ -24,7 +24,7 @@ public interface EmployeeDAO extends JpaRepository<Employee,Integer> {
     @Query(value = "select e from Employee e where e.id not in (select u.employeeId from User u where u.employeeId is not null)")
     List<Employee> getEmployeesWithoutUserAccount();
 
-    @Query(value = "select new Employee(e.id, e.fullname, e.email, e.mobileNumber, e.employeestatusid) from Employee e order by e.id desc")
+    @Query(value = "select new Employee(e.id, e.fullname, e.nic, e.email, e.mobileNumber, e.employeestatusid,e.designationid) from Employee e order by e.id desc")
     List<Employee> findAll();
 
 }

@@ -84,12 +84,14 @@ public class Employee {
     private Designation designationid;
 
     //new constructor to send the only required column
-public Employee(Integer id, String fullname, String email,String mobileNumber,EmployeeStatus employeestatusid){
+public Employee(Integer id, String fullname, String nic, String email,String mobileNumber,EmployeeStatus employeestatusid, Designation designationid){
     this.id =id;
     this.fullname = fullname;
+    this.nic = nic;
     this.email = email;
     this.mobileNumber = mobileNumber;
     this.employeestatusid = employeestatusid;
+    this.designationid = designationid;
 }
 
 
