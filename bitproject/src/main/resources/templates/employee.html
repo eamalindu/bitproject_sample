@@ -212,14 +212,31 @@
 <!--Modal for print-->
 
 <div class="modal fade" id="modalPrint" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                 <button type="button" class="btn-close opacity-100 btn-sm" style="background-color: #00ffff;filter: invert(1)" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
+                <table class="table table-bordered custom-table">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="text-nowrap">FullName</th>
+                        <th scope="col" class="text-nowrap">Calling Name</th>
+                        <th scope="col" class="text-nowrap">Email</th>
+                        <th scope="col" class="text-nowrap">Mobile</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td id="printTableFullName" class="text-nowrap"></td>
+                        <td id="printTableCallingName"></td>
+                        <td id="printTableEmail"></td>
+                        <td id="printTableMobile"></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
