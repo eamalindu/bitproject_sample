@@ -261,6 +261,13 @@ const refreshUserForm = () => {
 }
 const addUser = ()=>{
     console.log(user);
-
+showCustomConfirm("Are You Sure",function (result){
+    if(result){
+        serviceResponse = ajaxHttpRequest("/user",'POST',user)
+    }
+    else{
+        showCustomModal("Operation Cancelled by the user!",'info')
+    }
+})
 
 }
