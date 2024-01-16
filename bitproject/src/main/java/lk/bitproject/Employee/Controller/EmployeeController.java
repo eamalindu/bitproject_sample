@@ -47,8 +47,8 @@ public class EmployeeController {
     //here {id} is a path variable
     //employee/getbyid/1
     @GetMapping(value = "/getbyid/{id}", produces = "application/json")
-    public String getbyId() {
-        return "EMPs";
+    public Employee getbyId(@PathVariable("id") Integer id) {
+        return employeeDAO.getReferenceById(id);
     }
 
     @GetMapping(value = "/test",produces = "application/json")
