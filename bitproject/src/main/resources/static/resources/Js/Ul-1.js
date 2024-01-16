@@ -162,8 +162,12 @@ const getUserAccstatus = (ob) => {
 }
 
 const rowEdit = (ob, rowIndex) => {
-    employee = JSON.parse(JSON.stringify(ob));
-    oldemployee = JSON.parse(JSON.stringify(ob));
+    // employee = JSON.parse(JSON.stringify(ob));
+    // oldemployee = JSON.parse(JSON.stringify(ob));
+
+    employee = ajaxHttpRequest("/employee/getbyid/"+ob.id);
+    oldemployee = ajaxHttpRequest("/employee/getbyid?id="+ob.id);
+
 
     fullName.value = ob.fullname;
     nic.value = ob.nic;
