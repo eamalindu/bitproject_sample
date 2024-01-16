@@ -169,9 +169,9 @@ const rowEdit = (ob, rowIndex) => {
     oldemployee = ajaxHttpRequest("/employee/getbyid?id="+ob.id); //query variable (param)
 
 
-    fullName.value = ob.fullname;
-    nic.value = ob.nic;
-    email.value = ob.email;
+    fullName.value = employee.fullname;
+    nic.value = employee.nic;
+    email.value = employee.email;
 
     //designation.value = ob.designationid.name;
     //designation.selectedIndex = ob.designationid.id;
@@ -180,19 +180,19 @@ const rowEdit = (ob, rowIndex) => {
         //empStatus.value = ob.employeestatusid.name;
         //empStatus.selectedIndex =ob.employeestatusid.id;
 
-    fillSelectOptions(empStatus, 'Select Employee Status', employeeStatus,'name',ob.employeestatusid.name);
-    fillSelectOptions(designation, 'Select Your Designation', designationStatus,'name',ob.designationid.name);
+    fillSelectOptions(empStatus, 'Select Employee Status', employeeStatus,'name',employee.employeestatusid.name);
+    fillSelectOptions(designation, 'Select Your Designation', designationStatus,'name',employee.designationid.name);
 
 
-    mobileNumber.value = ob.mobileNumber;
-    address.value = ob.address;
-    civilStatus.value = ob.civilStatus;
-    callingName.value = ob.callingname;
-    note.value = ob.note;
-    landNumber.value = ob.landNumber;
-    dob.value = ob.dob;
+    mobileNumber.value = employee.mobileNumber;
+    address.value = employee.address;
+    civilStatus.value = employee.civilStatus;
+    callingName.value = employee.callingname;
+    note.value = employee.note;
+    landNumber.value = employee.landNumber;
+    dob.value = employee.dob;
 
-    if(ob.gender==="Male"){
+    if(employee.gender==="Male"){
         inlineRadio1.checked = true;
     }
     else{
