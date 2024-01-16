@@ -165,8 +165,8 @@ const rowEdit = (ob, rowIndex) => {
     // employee = JSON.parse(JSON.stringify(ob));
     // oldemployee = JSON.parse(JSON.stringify(ob));
 
-    employee = ajaxHttpRequest("/employee/getbyid/"+ob.id);
-    oldemployee = ajaxHttpRequest("/employee/getbyid?id="+ob.id);
+    employee = ajaxHttpRequest("/employee/getbyid/"+ob.id); //path variable
+    oldemployee = ajaxHttpRequest("/employee/getbyid?id="+ob.id); //query variable (param)
 
 
     fullName.value = ob.fullname;
