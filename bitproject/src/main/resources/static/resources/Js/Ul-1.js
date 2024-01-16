@@ -167,7 +167,7 @@ const rowEdit = (ob, rowIndex) => {
 
     employee = ajaxHttpRequest("/employee/getbyid/"+ob.id); //path variable
     oldemployee = ajaxHttpRequest("/employee/getbyid?id="+ob.id); //query variable (param)
-
+    console.log(employee)
 
     fullName.value = employee.fullname;
     nic.value = employee.nic;
