@@ -34,9 +34,7 @@ const refreshTable = () => {
 }
 
 const getFullName = (ob) => {
-
         return ob.employeeId.fullname;
-
 
 }
 
@@ -79,7 +77,6 @@ const rowEdit = (ob, rowIndex) => {
     employeeWithOutUserAccount = ajaxGetRequest("/employee/test")
     employeeWithOutUserAccount.push(user.employeeId)
     fillSelectOptions(selectEmp,'Select Employee',employeeWithOutUserAccount,'fullname',user.employeeId.fullname)
-
     //selectEmp.selectedIndex = user.id;
 
     //active status
