@@ -51,6 +51,11 @@ public class EmployeeController {
         return employeeDAO.getReferenceById(id);
     }
 
+    @GetMapping(value = "/getbyid/",params = {"id"},produces = "application/json")
+    public Employee getbyIdQuery(@RequestParam("id") Integer id) {
+        return employeeDAO.getReferenceById(id);
+    }
+
     @GetMapping(value = "/test",produces = "application/json")
     public List<Employee> getEmployeesWithoutUserAccount(){
         return employeeDAO.getEmployeesWithoutUserAccount();
