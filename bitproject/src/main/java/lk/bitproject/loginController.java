@@ -13,7 +13,7 @@ public class loginController {
         loginView.setViewName("login.html");
         return loginView;
     }
-    @GetMapping(value = "/dashboard")
+    @GetMapping(value = "/Dashboard")
     public ModelAndView dashboardUI(){
         ModelAndView dashboardView = new ModelAndView();
         dashboardView.setViewName("dashboard.html");
