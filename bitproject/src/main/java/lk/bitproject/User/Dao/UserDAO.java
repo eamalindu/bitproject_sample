@@ -13,5 +13,5 @@ public interface UserDAO extends JpaRepository<User,Integer> {
 
     //get * info from employee id
     @Query(value = "SELECT u from User u where u.employeeId.id=?1")
-    User getByEmployee(Integer id);
+    User getByEmployee(Integer empID);
 }
