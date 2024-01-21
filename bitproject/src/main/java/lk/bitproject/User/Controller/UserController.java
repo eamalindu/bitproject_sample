@@ -52,13 +52,13 @@ public class UserController {
 
     @PutMapping
     public String updateUser(@RequestBody User user){
-        User currentUser = userDAO.getReferenceById(user.getId());
-        if(currentUser==null){
-            return "No Such User Account";
+        User userEmp = userDAO.getByEmployee(user.getEmployeeId().getId());
+        if(userEmp!=null){
+            return "<br> User Account For <small class='text-lowercase fw-bold'>" + user.getEmployeeId().getFullname() + "</small> Already Exists";
         }
 
-        User userEmp = userDAO.getByEmail(user.getEmail());
-        if(userEmp!=null){
+        User userEmail = userDAO.getByEmail(user.getEmail());
+        if(userEmail!=null){
             return "<br> Email <small class='text-lowercase fw-bold'>" + user.getEmail() + "</small> Already Exists";
         }
 
