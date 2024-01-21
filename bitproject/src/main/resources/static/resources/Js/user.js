@@ -222,7 +222,7 @@ const updateUser = ()=>{
                 textRePassword.disabled = false;
             }
             else{
-                showCustomModal("Update Failed!",'error')
+                showCustomModal("Update Failed! "+postServerResponse,'error')
             }
 
         }
