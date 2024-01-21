@@ -24,7 +24,7 @@ body {
     padding: 15px;
 }
 
-.card-login img {
+.card-login .image {
     width: 200px;
     aspect-ratio: 1/1;
     margin-bottom: 30px;
