@@ -57,6 +57,11 @@ public class UserController {
             return "No Such User Account";
         }
 
+        User userEmp = userDAO.getByEmail(user.getEmail());
+        if(userEmp!=null){
+            return "<br> Email <small class='text-lowercase fw-bold'>" + user.getEmail() + "</small> Already Exists";
+        }
+
         try{
 
             userDAO.save(user);
